@@ -368,7 +368,7 @@ function Marquee() {
 function Problems() {
   return (
     <section id="problems" className="py-28 md:py-40">
-      <div className={`${wrap} grid gap-12 md:grid-cols-12 md:gap-16`}>
+      <div className={`${wrap} grid gap-12 md:grid-cols-12 md:gap-8 lg:gap-16`}>
         <div className="md:sticky md:top-32 md:col-span-5 md:self-start">
           <Reveal>
             <h2 className={h2}>{problems.h2}</h2>
@@ -465,7 +465,7 @@ function Outcome() {
 
 function Solution() {
   const s = solution.services;
-  const span = ["md:col-span-2", "", "", "", ""];
+  const span = ["sm:col-span-2", "", "", "", ""];
   return (
     <section id="services" className="border-y border-line bg-surface py-28 md:py-40">
       <div className={wrap}>
@@ -474,7 +474,7 @@ function Solution() {
           <p className="mt-6 max-w-[62ch] text-pretty text-[17px] text-ink-soft">{solution.intro}</p>
         </Reveal>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {s.map((item, i) => (
             <Reveal key={item.t} delay={(i % 3) * 0.07} className={span[i]}>
               <Shell core="bg-bg" className="group h-full">
@@ -543,8 +543,9 @@ const Process = observer(function Process() {
 
   return (
     <section id="process" className="on-dark mx-2 rounded-[2.5rem] bg-dark py-28 text-on-dark md:mx-4 md:py-40">
-      <div className={`${wrap} grid gap-14 md:grid-cols-12 md:gap-16`}>
-        <div className="md:sticky md:top-32 md:col-span-5 md:self-start">
+      <div className={`${wrap} grid gap-14 md:grid-cols-12 md:gap-8 lg:gap-16`}>
+        {/* Column is ~760px tall: only pin it when the viewport can show all of it. */}
+        <div className="md:col-span-5 md:self-start md:[@media(min-height:56rem)]:sticky md:[@media(min-height:56rem)]:top-32">
           <Reveal>
             <p className={`${eyebrow} text-accent`}>{process.eyebrow}</p>
             <h2 className={`${h2} mt-5`}>{process.h2}</h2>
@@ -599,9 +600,9 @@ const Process = observer(function Process() {
       </div>
 
       <div className={`${wrap} mt-24 md:mt-32`}>
-        <ul className="grid gap-10 border-t border-dark-line pt-12 md:grid-cols-3 md:gap-0 md:divide-x md:divide-dark-line">
+        <ul className="grid gap-10 border-t border-dark-line pt-12 lg:grid-cols-3 lg:gap-0 lg:divide-x lg:divide-dark-line">
           {process.why.map((w, i) => (
-            <li key={w.t} className="md:px-10 md:first:pl-0 md:last:pr-0">
+            <li key={w.t} className="lg:px-10 lg:first:pl-0 lg:last:pr-0">
               <Reveal delay={i * 0.07}>
                 <h3 className="font-display text-xl font-medium tracking-[-0.02em]">{w.t}</h3>
                 <p className="mt-2 text-pretty text-on-dark-muted">{w.d}</p>
@@ -728,7 +729,7 @@ function Guarantee() {
         <Reveal><h2 className={h2}>{guarantees.h2}</h2></Reveal>
         <Reveal delay={0.08} className="mt-12">
           <Shell>
-            <ul className="grid divide-y divide-line md:grid-cols-3 md:divide-x md:divide-y-0">
+            <ul className="grid divide-y divide-line lg:grid-cols-3 lg:divide-x lg:divide-y-0">
               {guarantees.list.map((g, i) => (
                 <li key={g.t} className="p-8 md:p-10">
                   <span className="font-mono text-sm text-accent-ink tabular-nums">0{i + 1}</span>
@@ -800,7 +801,7 @@ function Questions() {
           ))}
         </dl>
 
-        <div className="mt-28 grid gap-10 md:mt-36 md:grid-cols-12 md:gap-16">
+        <div className="mt-28 grid gap-10 md:mt-36 md:grid-cols-12 md:gap-8 lg:gap-16">
           <Reveal className="md:sticky md:top-32 md:col-span-4 md:self-start">
             <h2 className={h2}>Questions, answered.</h2>
           </Reveal>
@@ -873,7 +874,7 @@ function Footer() {
       </div>
 
       <Reveal y={40} className="mt-20 select-none px-4 md:px-8" >
-        <p aria-hidden="true" className="whitespace-nowrap text-center font-display text-[clamp(2.75rem,11vw,12rem)] font-bold leading-[0.82] tracking-[-0.055em] text-ink">
+        <p aria-hidden="true" className="whitespace-nowrap text-center font-display text-[clamp(2rem,11vw,12rem)] font-bold leading-[0.82] tracking-[-0.055em] text-ink">
           Fast Solutions<span className="text-accent">.</span>
         </p>
       </Reveal>
