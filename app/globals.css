@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fast Solutions tokens. Adapted from DESIGN.md (North): plaster ground, soot ink, one cobalt accent.
+   Theme lock: light brand page with one deliberate soot section (the process). */
+:root {
+  color-scheme: light;
+
+  --bg: #f6f5ee;          /* plaster */
+  --surface: #fcfbf7;     /* cloud, never pure white */
+  --putty: #e4e1cd;
+  --ink: #1c1b17;         /* soot */
+  --ink-soft: #545245;
+  --muted: #6a6757;
+  --line: #e3e1d9;
+  --line-strong: #d1d0c7;
+
+  --accent: #2a56e8;      /* the only accent: cobalt. Plaster text on it 5.3:1 */
+  --accent-ink: #1f45c7;  /* accent as text on plaster, 7:1 */
+  --on-accent: #f6f5ee;   /* text and icons on accent fills */
+
+  --dark: #1c1b17;
+  --dark-raised: #26251f;
+  --on-dark: #f6f5ee;
+  --on-dark-muted: #a9a693;
+  --dark-line: #34332b;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --shadow-soft:
+    0 1px 2px -1px rgb(28 27 23 / 0.06),
+    0 8px 24px -8px rgb(28 27 23 / 0.08),
+    0 24px 64px -24px rgb(28 27 23 / 0.12);
+}
+
+/* Inside the soot section the same accent is lifted for contrast (7.5:1 on --dark). */
+.on-dark {
+  --accent: #8aa8ff;
+  --accent-ink: #8aa8ff;
+  --on-accent: #1c1b17;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-optical-sizing: auto;
+}
+
+::selection { background: var(--accent); color: var(--ink); }
+
+/* Film grain sells physicality. Fixed, never on a scroll container. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Services marquee: content, not decoration. Pauses on hover, stops for reduced motion. */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 40s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track { animation: none; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass { backdrop-filter: none !important; background: var(--surface) !important; }
+}

@@ -1,0 +1,31 @@
+# Fast Solutions
+
+> Fast Solutions is a web studio led by software engineer and designer Muhammad Umar Malik. It builds fast Next.js websites, lead generation funnels, local SEO and AI visibility, business automation and custom software for owner-run local service businesses (clinics, dental and med-spa practices, contractors, salons, law and accounting firms, home services). Fixed price, design approved before code, most websites live in 12-22 days. Clients worldwide.
+
+## Services
+- Fast, modern websites: custom Next.js sites built for speed, mobile and conversions
+- Lead generation: funnels, booking flows and lead capture
+- SEO and AI visibility: technical SEO, structured data, local signals, AI-assistant readiness
+- Business automation: follow-ups, reminders, lead routing, reporting
+- Custom software: booking systems, quoting tools, client portals, internal dashboards
+
+## Process (5 steps)
+1. Find the problem: site, funnel and competitor audit
+2. Research and plan: roadmap, tech choice, timeline, fixed price
+3. Design first: client approves mobile and desktop design before code
+4. Build: production code, performance tuning, SEO foundation
+5. Test and launch: QA, performance audit, go-live support, handover
+
+## Key facts
+- Pricing: one fixed price agreed before work starts, no hourly billing
+- Timeline: 12-22 days for most websites
+- Ownership: client owns 100% of code, design files, credentials and docs
+- Client involvement: three touchpoints (confirm problem, approve design, sign off launch)
+
+## Links
+- Home: https://www.umarmalik-dev.com/
+- Process: https://www.umarmalik-dev.com/#process
+- FAQ: https://www.umarmalik-dev.com/#faq
+- Book a free 30-minute discovery call: https://calendly.com/umarmalik-cs711/30min
+- Founder on LinkedIn: https://www.linkedin.com/in/umarmalik-dev
+- GitHub: https://github.com/MuhammadUmarMalik
