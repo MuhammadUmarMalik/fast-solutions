@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fast Solutions tokens. Adapted from DESIGN.md (North): plaster ground, soot ink, one cobalt accent.
+/* Softex Solutions tokens. Adapted from DESIGN.md (North): plaster ground, soot ink, one cobalt accent.
    Theme lock: light brand page with one deliberate soot section (the process). */
 :root {
   color-scheme: light;

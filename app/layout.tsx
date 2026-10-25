@@ -7,7 +7,7 @@ const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["lat
 const body = Instrument_Sans({ variable: "--font-body", subsets: ["latin"], display: "swap" });
 const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"], display: "swap", weight: ["400", "500"] });
 
-const title = "Fast Solutions | Websites & Automation for Local Businesses";
+const title = "Softex Solutions | Websites & Automation for Local Businesses";
 const description = "Fast Next.js websites, local SEO, automation and custom software for local service businesses. Fixed price, design approved first, live in 12-22 days.";
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ const jsonLd = {
     { "@type": "Person", "@id": person, name: SITE.founder, jobTitle: "Software Engineer & Designer", image: `${SITE.url}/umar.png`,
       worksFor: { "@id": org }, sameAs: [SITE.linkedin, SITE.github, SITE.instagram] },
     { "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
-    { "@type": "HowTo", name: "How a Fast Solutions project runs, from audit to launch", totalTime: "P22D",
+    { "@type": "HowTo", name: "How a Softex Solutions project runs, from audit to launch", totalTime: "P22D",
       step: process.steps.map((s, i) => ({ "@type": "HowToStep", position: i + 1, name: s.t, text: s.d })) },
   ],
 };
