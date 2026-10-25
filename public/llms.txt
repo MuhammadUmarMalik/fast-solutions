@@ -1,6 +1,6 @@
-# Fast Solutions
+# Softex Solutions
 
-> Fast Solutions is a web studio led by software engineer and designer Muhammad Umar Malik. It builds fast Next.js websites, lead generation funnels, local SEO and AI visibility, business automation and custom software for owner-run local service businesses (clinics, dental and med-spa practices, contractors, salons, law and accounting firms, home services). Fixed price, design approved before code, most websites live in 12-22 days. Clients worldwide.
+> Softex Solutions is a web studio led by software engineer and designer Muhammad Umar Malik. It builds fast Next.js websites, lead generation funnels, local SEO and AI visibility, business automation and custom software for owner-run local service businesses (clinics, dental and med-spa practices, contractors, salons, law and accounting firms, home services). Fixed price, design approved before code, most websites live in 12-22 days. Clients worldwide.
 
 ## Services
 - Fast, modern websites: custom Next.js sites built for speed, mobile and conversions

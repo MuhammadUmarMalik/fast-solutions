@@ -86,11 +86,12 @@ function Shell({ children, className = "", core = "bg-surface" }: { children: Re
 }
 
 const Logo = () => (
-  <a href="#top" className={`flex items-center gap-2.5 rounded-full ${ring}`} aria-label="Fast Solutions home">
-    <span className="relative grid h-8 w-8 place-items-center rounded-[10px] bg-ink font-display text-[15px] font-bold text-bg">
-      F<span className="absolute bottom-1.5 right-1.5 h-1.5 w-1.5 rounded-[2px] bg-accent" />
-    </span>
-    <span className="font-display text-[17px] font-semibold tracking-[-0.02em]">Fast Solutions</span>
+  <a href="#top" className={`flex items-center gap-2.5 rounded-full ${ring}`} aria-label="Softex Solutions home">
+    <svg viewBox="0 0 66.5 57" className="h-[34px] w-[39.7px] shrink-0 overflow-visible" aria-hidden="true" focusable="false">
+      <text x="-2" y="55" style={{ fill: "var(--ink)", fontFamily: "var(--font-display), ui-sans-serif, system-ui, sans-serif", fontSize: 100, fontWeight: 800 }}>s</text>
+      <circle cx="60.4" cy="48.95" r="6.05" style={{ fill: "var(--accent)" }} />
+    </svg>
+    <span className="font-display text-[17px] font-semibold tracking-[-0.02em]">Softex Solutions</span>
   </a>
 );
 
@@ -696,7 +697,7 @@ function Proof() {
             <figure className="p-8 md:p-10">
               <div className="flex items-center gap-4">
                 <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-putty ring-1 ring-ink/[0.06]">
-                  <Image src="/umar.png" alt={`${SITE.founder}, founder of Fast Solutions`} fill sizes="64px" className="object-cover object-top" />
+                  <Image src="/umar.png" alt={`${SITE.founder}, founder of Softex Solutions`} fill sizes="64px" className="object-cover object-top" />
                 </span>
                 <figcaption>
                   <p className="font-display text-lg font-semibold tracking-[-0.015em]">{SITE.founder}</p>
@@ -875,12 +876,12 @@ function Footer() {
 
       <Reveal y={40} className="mt-20 select-none px-4 md:px-8" >
         <p aria-hidden="true" className="whitespace-nowrap text-center font-display text-[clamp(2rem,11vw,12rem)] font-bold leading-[0.82] tracking-[-0.055em] text-ink">
-          Fast Solutions<span className="text-accent">.</span>
+          Softex Solutions<span className="text-accent">.</span>
         </p>
       </Reveal>
 
       <div className={`${wrap} flex flex-col gap-2 border-t border-line py-6 text-sm text-muted md:flex-row md:justify-between`}>
-        <p>&copy; {new Date().getFullYear()} Fast Solutions. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Softex Solutions. All rights reserved.</p>
         <p>Fixed price · Design before code · You own everything</p>
       </div>
     </footer>
