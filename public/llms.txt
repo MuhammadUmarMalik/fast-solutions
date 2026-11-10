@@ -23,9 +23,20 @@
 - Client involvement: three touchpoints (confirm problem, approve design, sign off launch)
 
 ## Links
-- Home: https://www.umarmalik-dev.com/
-- Process: https://www.umarmalik-dev.com/#process
-- FAQ: https://www.umarmalik-dev.com/#faq
+- Home: https://softexsolutions.tech/
+- Full site content for AI assistants: https://softexsolutions.tech/llms-full.txt
+- Web design and development: https://softexsolutions.tech/services/web-design-development
+- Local SEO and AI visibility: https://softexsolutions.tech/services/local-seo-ai-visibility
+- Business automation: https://softexsolutions.tech/services/business-automation
+- Custom software, ERP and POS: https://softexsolutions.tech/services/custom-software
+- For contractors and home services: https://softexsolutions.tech/industries/contractors-home-services
+- For dental and medical clinics: https://softexsolutions.tech/industries/dental-medical-clinics
+- For salons and spas: https://softexsolutions.tech/industries/salons-spas
+- For retail and wholesale (POS): https://softexsolutions.tech/industries/retail-wholesale-pos
+- Case studies: https://softexsolutions.tech/work
+- Contact and free website review: https://softexsolutions.tech/contact
+- Process: https://softexsolutions.tech/#process
+- FAQ: https://softexsolutions.tech/#faq
 - Book a free 30-minute discovery call: https://calendly.com/umarmalik-cs711/30min
 - Founder on LinkedIn: https://www.linkedin.com/in/umarmalik-dev
 - GitHub: https://github.com/MuhammadUmarMalik

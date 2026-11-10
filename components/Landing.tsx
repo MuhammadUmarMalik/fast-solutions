@@ -3,6 +3,7 @@
 // Radius system: pill buttons and chips, 28px enclosures with concentric cores (outer minus padding).
 // Motion: blur-in once on the hero, whileInView reveals, scroll-linked hero media, statement and process rail.
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { MotionConfig, motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
 import { observer } from "mobx-react-lite";
@@ -10,16 +11,18 @@ import { uiStore as ui } from "@/store/uiStore";
 import {
   SITE, CTA, nav, hero, marquee, problems, outcome, solution, process, stack, proof, guarantees, objections, faqs, final,
 } from "@/lib/content";
+import { studies, work, type Study } from "@/lib/work";
+import { inGroup, topicHref } from "@/lib/pages";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
-const wrap = "mx-auto w-full max-w-[1200px] px-6 md:px-10";
-const h2 = "font-display font-semibold text-[clamp(2rem,4.4vw,3.5rem)] leading-[1.04] tracking-[-0.03em] text-balance";
-const eyebrow = "font-mono text-[11px] uppercase tracking-[0.16em]";
-const ring = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
+export const wrap = "mx-auto w-full max-w-[1200px] px-6 md:px-10";
+export const h2 = "font-display font-semibold text-[clamp(2rem,4.4vw,3.5rem)] leading-[1.04] tracking-[-0.03em] text-balance";
+export const eyebrow = "font-mono text-[11px] uppercase tracking-[0.16em]";
+export const ring = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
 
 /* ---------- primitives ---------- */
 
-function Reveal({ children, delay = 0, className = "", y = 24 }: { children: React.ReactNode; delay?: number; className?: string; y?: number }) {
+export function Reveal({ children, delay = 0, className = "", y = 24 }: { children: React.ReactNode; delay?: number; className?: string; y?: number }) {
   return (
     <motion.div
       className={className}
@@ -33,19 +36,19 @@ function Reveal({ children, delay = 0, className = "", y = 24 }: { children: Rea
   );
 }
 
-const Arrow = ({ className = "" }: { className?: string }) => (
+export const Arrow = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className={className}>
     <path d="M4.5 11.5l7-7M5.5 4.5h6v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
-const Check = ({ className = "" }: { className?: string }) => (
+export const Check = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
     <path d="M5 10.5l3.2 3L15 6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
-function BookCall({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+export function BookCall({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const pad = size === "sm" ? "h-10 pl-4 pr-1.5 text-sm" : size === "lg" ? "h-14 pl-7 pr-2 text-base" : "h-12 pl-6 pr-1.5 text-[15px]";
   const dot = size === "sm" ? "h-7 w-7" : size === "lg" ? "h-10 w-10" : "h-9 w-9";
   return (
@@ -63,7 +66,7 @@ function BookCall({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   );
 }
 
-function Ghost({ href, children, dark = false }: { href: string; children: React.ReactNode; dark?: boolean }) {
+export function Ghost({ href, children, dark = false }: { href: string; children: React.ReactNode; dark?: boolean }) {
   return (
     <a
       href={href}
@@ -77,7 +80,7 @@ function Ghost({ href, children, dark = false }: { href: string; children: React
 }
 
 /** Double-bezel enclosure: a core seated in a tray, concentric radii. */
-function Shell({ children, className = "", core = "bg-surface" }: { children: React.ReactNode; className?: string; core?: string }) {
+export function Shell({ children, className = "", core = "bg-surface" }: { children: React.ReactNode; className?: string; core?: string }) {
   return (
     <div className={`rounded-[1.75rem] bg-ink/[0.035] p-1.5 ring-1 ring-ink/[0.06] ${className}`}>
       <div className={`h-full overflow-hidden rounded-[calc(1.75rem-0.375rem)] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] ${core}`}>{children}</div>
@@ -86,7 +89,7 @@ function Shell({ children, className = "", core = "bg-surface" }: { children: Re
 }
 
 const Logo = () => (
-  <a href="#top" className={`flex items-center gap-2.5 rounded-full ${ring}`} aria-label="Softex Solutions home">
+  <a href="/#top" className={`flex items-center gap-2.5 rounded-full ${ring}`} aria-label="Softex Solutions home">
     <svg viewBox="0 0 66.5 57" className="h-[34px] w-[39.7px] shrink-0 overflow-visible" aria-hidden="true" focusable="false">
       <text x="-2" y="55" style={{ fill: "var(--ink)", fontFamily: "var(--font-display), ui-sans-serif, system-ui, sans-serif", fontSize: 100, fontWeight: 800 }}>s</text>
       <circle cx="60.4" cy="48.95" r="6.05" style={{ fill: "var(--accent)" }} />
@@ -494,7 +497,9 @@ function Solution() {
                   )}
                   <div className={`flex flex-1 flex-col justify-end p-7 md:p-9 ${i === 0 ? "md:min-h-[320px]" : "min-h-[220px]"}`}>
                     <span className="font-mono text-sm text-muted tabular-nums">0{i + 1}</span>
-                    <h3 className="mt-auto pt-10 font-display text-2xl font-medium tracking-[-0.02em]">{item.t}</h3>
+                    <h3 className="mt-auto pt-10 font-display text-2xl font-medium tracking-[-0.02em]">
+                      <Link href={item.href} className={`rounded transition-colors duration-300 ease-expo hover:text-accent-ink ${ring}`}>{item.t}</Link>
+                    </h3>
                     <p className="mt-2 max-w-[44ch] text-pretty text-ink-soft">{item.d}</p>
                   </div>
                 </div>
@@ -619,11 +624,58 @@ const Process = observer(function Process() {
   );
 });
 
+/* ---------- work ---------- */
+
+/** Case study rows. Whole row is the link: title, result, cover, arrow. Stacks to one column below md. */
+export function WorkRows({ items }: { items: readonly Study[] }) {
+  return (
+    <ul className="border-b border-line">
+      {items.map((s, i) => (
+        <li key={s.slug} className="border-t border-line">
+          <Reveal y={16} delay={i * 0.05}>
+            <Link
+              href={`/work/${s.slug}`}
+              className={`group grid gap-6 rounded-[1.25rem] py-8 md:grid-cols-[1fr_17rem_2.75rem] md:items-center md:gap-10 md:py-10 ${ring}`}
+            >
+              <div>
+                <p className="text-sm text-muted">{s.industry} · {s.kind}</p>
+                <h3 className="mt-3 font-display text-2xl font-medium leading-[1.1] tracking-[-0.025em] text-balance transition-colors duration-300 ease-expo group-hover:text-accent-ink md:text-[2rem]">{s.name}</h3>
+                <p className="mt-3 max-w-[52ch] text-pretty text-ink-soft">{s.result}</p>
+              </div>
+              <div className="relative order-first aspect-[16/10] overflow-hidden rounded-[1.25rem] bg-putty ring-1 ring-ink/[0.06] md:order-none">
+                <Image src={s.img} alt={s.alt} fill loading="lazy" sizes="(min-width: 768px) 272px, 100vw" className="object-cover transition-transform duration-700 ease-expo group-hover:scale-[1.04]" />
+              </div>
+              <span aria-hidden="true" className="hidden h-11 w-11 place-items-center rounded-full ring-1 ring-line-strong transition-[background-color,color,transform] duration-300 ease-expo group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:bg-accent group-hover:text-on-accent md:grid">
+                <Arrow className="h-3.5 w-3.5" />
+              </span>
+            </Link>
+          </Reveal>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Work() {
+  return (
+    <section id="work" className="py-28 md:py-40">
+      <div className={wrap}>
+        <Reveal>
+          <h2 className={`${h2} max-w-[18ch]`}>{work.h2}</h2>
+          <p className="mt-6 max-w-[62ch] text-pretty text-[17px] text-ink-soft">{work.intro}</p>
+        </Reveal>
+        <div className="mt-16"><WorkRows items={studies.slice(0, 4)} /></div>
+        <Reveal className="mt-10"><Ghost href="/work">{work.all}</Ghost></Reveal>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- value stack ---------- */
 
 function ValueStack() {
   return (
-    <section className="py-28 md:py-40">
+    <section className="border-t border-line py-28 md:py-40">
       <div className={wrap}>
         <Reveal>
           <p className={`${eyebrow} text-accent-ink`}>{stack.eyebrow}</p>
@@ -836,6 +888,7 @@ function FinalCta() {
         <Reveal delay={0.14} className="mt-12 flex flex-col items-center">
           <BookCall size="lg" />
           <p className="mt-5 text-sm text-muted">{final.micro}</p>
+          <Link href="/contact" className={`mt-4 rounded text-sm font-medium text-accent-ink underline underline-offset-4 ${ring}`}>{final.alt}</Link>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mx-auto mt-12 max-w-[56ch] text-pretty text-ink-soft">{final.note}</p>
@@ -852,11 +905,11 @@ function Footer() {
   return (
     <footer className="overflow-hidden border-t border-line pt-16">
       <div className={`${wrap} grid gap-10 md:grid-cols-12`}>
-        <div className="md:col-span-5">
+        <div className="md:col-span-12 lg:col-span-3">
           <Logo />
           <p className="mt-5 max-w-[38ch] text-pretty text-ink-soft">Websites, automation and custom software for local service businesses. Led by {SITE.founder}.</p>
         </div>
-        <nav aria-label="Footer" className="md:col-span-3">
+        <nav aria-label="Footer" className="md:col-span-3 lg:col-span-2">
           <p className="font-display font-semibold">Explore</p>
           <ul className="mt-4 space-y-2.5">
             {nav.map(([l, h]) => (
@@ -864,9 +917,20 @@ function Footer() {
             ))}
           </ul>
         </nav>
-        <div className="md:col-span-4">
+        {(["services", "industries"] as const).map((g) => (
+          <nav key={g} aria-label={g} className={`md:col-span-3 ${g === "services" ? "lg:col-span-3" : "lg:col-span-2"}`}>
+            <p className="font-display font-semibold capitalize">{g}</p>
+            <ul className="mt-4 space-y-2.5">
+              {inGroup(g).map((t) => (
+                <li key={t.slug}><Link href={topicHref(t)} className={`rounded text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{t.name}</Link></li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+        <div className="md:col-span-3 lg:col-span-2">
           <p className="font-display font-semibold">Talk to us</p>
           <ul className="mt-4 space-y-2.5">
+            <li><Link href="/contact" className={`rounded text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{CTA.audit}</Link></li>
             {[[CTA.primary, SITE.cta], ["LinkedIn", SITE.linkedin], ["Instagram", SITE.instagram], ["WhatsApp", SITE.whatsapp]].map(([l, h]) => (
               <li key={l}><a href={h} target="_blank" rel="noopener noreferrer" className={`rounded text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{l}</a></li>
             ))}
@@ -890,7 +954,8 @@ function Footer() {
 
 /* ---------- page ---------- */
 
-export default function Landing() {
+/** Shared chrome for every route: motion config, skip link, progress bar, nav, footer. */
+export function Frame({ children }: { children: React.ReactNode }) {
   return (
     <MotionConfig reducedMotion="user">
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-bg">
@@ -898,20 +963,40 @@ export default function Landing() {
       </a>
       <ScrollBar />
       <Nav />
-      <main id="main">
-        <Hero />
-        <Marquee />
-        <Problems />
-        <Outcome />
-        <Solution />
-        <Process />
-        <ValueStack />
-        <Proof />
-        <Guarantee />
-        <Questions />
-        <FinalCta />
-      </main>
+      <main id="main">{children}</main>
       <Footer />
+      {/* Zero-friction contact: one tap to WhatsApp from any page. Icon only on phones. */}
+      <a
+        href={SITE.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className={`fixed bottom-5 right-5 z-40 inline-flex h-12 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-bg shadow-soft transition-transform duration-300 ease-expo hover:-translate-y-px active:scale-[0.98] ${ring}`}
+      >
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z" />
+        </svg>
+        <span className="hidden sm:inline">Chat on WhatsApp</span>
+      </a>
     </MotionConfig>
+  );
+}
+
+export default function Landing() {
+  return (
+    <Frame>
+      <Hero />
+      <Marquee />
+      <Problems />
+      <Outcome />
+      <Solution />
+      <Process />
+      <Work />
+      <ValueStack />
+      <Proof />
+      <Guarantee />
+      <Questions />
+      <FinalCta />
+    </Frame>
   );
 }
