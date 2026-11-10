@@ -5,7 +5,7 @@ const U = (id: string) =>
 export const SITE = {
   name: "Softex Solutions",
   founder: "Muhammad Umar Malik",
-  url: "https://www.umarmalik-dev.com",
+  url: "https://softexsolutions.tech",
   cta: "https://calendly.com/umarmalik-cs711/30min",
   linkedin: "https://www.linkedin.com/in/umarmalik-dev",
   instagram: "https://www.instagram.com/umarmalik.dev/",
@@ -15,21 +15,30 @@ export const SITE = {
   github: "https://github.com/MuhammadUmarMalik",
 };
 
+// Default <title> and meta description (home page).
+export const seo = {
+  title: "Softex Solutions | Websites & Automation for Local Businesses",
+  description:
+    "Fast Next.js websites, local SEO, automation and custom software for local service businesses. Fixed price, design approved first, live in 12-22 days.",
+};
+
 // One label per intent, used everywhere on the page.
-export const CTA = { primary: "Book a call", secondary: "See the process" };
+export const CTA = { primary: "Book a call", secondary: "See the process", audit: "Get a free site review" };
 
 export const nav = [
-  ["Problems", "#problems"],
-  ["Services", "#services"],
-  ["Process", "#process"],
-  ["FAQ", "#faq"],
+  // Root-relative so the same links work from /work pages.
+  ["Problems", "/#problems"],
+  ["Services", "/#services"],
+  ["Process", "/#process"],
+  ["Work", "/#work"],
+  ["FAQ", "/#faq"],
 ] as const;
 
 export const hero = {
   eyebrow: "For local service businesses",
   h1a: "Your website should bring",
   h1b: "customers, not excuses.",
-  sub: "We fix slow sites, missing leads and manual busywork, then build the custom tools your business needs. Fixed price.",
+  sub: "Softex Solutions builds fast websites, local SEO, automation and custom software for local service businesses. Fixed price, live in 12 to 22 days.",
   // Sample client build shown in the hero mockup. Illustrative, not a real client.
   mockup: {
     label:
@@ -131,24 +140,29 @@ export const solution = {
     {
       t: "Fast, modern websites",
       d: "Custom Next.js sites built for speed, mobile and conversions.",
+      href: "/services/web-design-development",
       img: U("photo-1547658719-da2b51169166"),
       alt: "Code editor open on a web development workstation",
     },
     {
       t: "Lead generation",
       d: "Clear funnels, booking flows and lead capture that turn visitors into enquiries.",
+      href: "/industries/contractors-home-services",
     },
     {
       t: "SEO and AI visibility",
       d: "The technical foundation that gets you found on Google and in AI assistants.",
+      href: "/services/local-seo-ai-visibility",
     },
     {
       t: "Business automation",
       d: "Follow-ups, reminders, lead routing and reporting that run without you.",
+      href: "/services/business-automation",
     },
     {
       t: "Custom software",
       d: "Booking systems, quoting tools, client portals and internal dashboards built for how you work.",
+      href: "/services/custom-software",
       img: U("photo-1551836022-d5d88e9218df"),
       alt: "Small business team planning a custom software workflow",
     },
@@ -413,8 +427,31 @@ export const final = {
   ],
   note: "No obligation. If we're not the right fit, you still leave with a clear list of what to fix.",
   micro: "Free · 30 minutes · You approve everything before we build",
+  alt: "Not ready for a call? Send your site on WhatsApp for a free review",
   urgency:
     "We take on a limited number of projects at a time so every build gets founder-level attention.",
+};
+
+// /contact: the low-commitment path. The form opens WhatsApp with the message pre-filled.
+export const contact = {
+  title: "Contact & Free Website Review",
+  description:
+    "Send Softex Solutions your website and your biggest problem. We reply on WhatsApp with what we'd fix first. Free, no obligation, no call needed.",
+  eyebrow: "Free website review",
+  h1: "Tell us what's not working.",
+  sub: "Send your site and the problem that's costing you most. We'll look at it and reply on WhatsApp with what we'd fix first.",
+  list: ["Free, no obligation", "No call needed", "A plain-English answer from the founder"],
+  call: "Rather talk it through? Book a free 30-minute discovery call instead.",
+  problems: [
+    "My site is slow or looks dated",
+    "I get visitors but no calls or leads",
+    "I don't show up on Google",
+    "Too much manual work",
+    "I need custom software",
+    "I don't have a website yet",
+  ],
+  submit: "Send on WhatsApp",
+  micro: "Opens WhatsApp with your message ready to send.",
 };
 
 // AEO answer capsule, used in structured data.
