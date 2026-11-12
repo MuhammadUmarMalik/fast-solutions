@@ -482,26 +482,12 @@ function Solution() {
           {s.map((item, i) => (
             <Reveal key={item.t} delay={(i % 3) * 0.07} className={span[i]}>
               <Shell core="bg-bg" className="group h-full">
-                <div className={`flex h-full flex-col ${i === 0 ? "md:flex-row" : ""}`}>
-                  {item.img && (
-                    <div className={`relative overflow-hidden ${i === 0 ? "aspect-[16/10] md:aspect-auto md:w-1/2" : "aspect-[16/10]"}`}>
-                      <Image
-                        src={item.img}
-                        alt={item.alt ?? ""}
-                        fill
-                        loading="lazy"
-                        sizes="(min-width: 768px) 40vw, 100vw"
-                        className="object-cover transition-transform duration-700 ease-expo group-hover:scale-[1.03]"
-                      />
-                    </div>
-                  )}
-                  <div className={`flex flex-1 flex-col justify-end p-7 md:p-9 ${i === 0 ? "md:min-h-[320px]" : "min-h-[220px]"}`}>
-                    <span className="font-mono text-sm text-muted tabular-nums">0{i + 1}</span>
-                    <h3 className="mt-auto pt-10 font-display text-2xl font-medium tracking-[-0.02em]">
-                      <Link href={item.href} className={`rounded transition-colors duration-300 ease-expo hover:text-accent-ink ${ring}`}>{item.t}</Link>
-                    </h3>
-                    <p className="mt-2 max-w-[44ch] text-pretty text-ink-soft">{item.d}</p>
-                  </div>
+                <div className={`flex h-full flex-col justify-end p-7 md:p-9 ${i === 0 ? "md:min-h-[320px]" : "min-h-[220px]"}`}>
+                  <span className="font-mono text-sm text-muted tabular-nums">0{i + 1}</span>
+                  <h3 className="mt-auto pt-10 font-display text-2xl font-medium tracking-[-0.02em]">
+                    <Link href={item.href} className={`rounded transition-colors duration-300 ease-expo hover:text-accent-ink ${ring}`}>{item.t}</Link>
+                  </h3>
+                  <p className="mt-2 max-w-[44ch] text-pretty text-ink-soft">{item.d}</p>
                 </div>
               </Shell>
             </Reveal>
@@ -749,7 +735,7 @@ function Proof() {
             <figure className="p-8 md:p-10">
               <div className="flex items-center gap-4">
                 <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-putty ring-1 ring-ink/[0.06]">
-                  <Image src="/umar.png" alt={`${SITE.founder}, founder of Softex Solutions`} fill sizes="64px" className="object-cover object-top" />
+                  <Image src="/umar.webp" alt={`${SITE.founder}, founder of Softex Solutions`} fill sizes="64px" className="object-cover object-top" />
                 </span>
                 <figcaption>
                   <p className="font-display text-lg font-semibold tracking-[-0.015em]">{SITE.founder}</p>

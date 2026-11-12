@@ -1,6 +1,6 @@
 // Case studies. Source of truth: "Portfolio Case Studies.md" (master versions, in the studio's "we" voice).
 // Features come from the project code. Results are the client's, kept qualitative unless a real figure exists.
-// Covers are industry photography until real screenshots are approved: swap `img` for a file in /public.
+// Covers are real product mockups from /public where we have them, industry photography otherwise.
 import type { Metadata } from "next";
 import { SITE } from "./content";
 
@@ -16,6 +16,7 @@ export type Study = {
   result: string; // one line, shown in lists
   client: string;
   timeline?: string;
+  url?: string; // live site, shown as a link in the facts row
   role: string;
   problem: string;
   solution: { t: string; d: string }[];
@@ -23,6 +24,7 @@ export type Study = {
   tech: string[];
   img: string;
   alt: string;
+  shots?: { src: string; alt: string; h: number }[]; // extra screens, all 2800px wide
 };
 
 export const studies: Study[] = [
@@ -52,8 +54,46 @@ export const studies: Study[] = [
       "The client came back for more work",
     ],
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP"],
-    img: U("photo-1584622650111-993a426fbf0a"),
-    alt: "Remodeled bathroom with a glass shower and a long vanity",
+    img: "/bathroom-remodeling-landing-page.webp",
+    alt: "Bathroom remodeling landing page for Bath Expert Team on a laptop, with the services and recent projects sections",
+    shots: [
+      { src: "/bathroom-remodeling-landing-page-full-scroll.webp", alt: "Full scroll of the bathroom remodeling landing page: hero, common problems, services, recent projects, benefits, reviews and service area", h: 2020 },
+      { src: "/bathroom-remodeling-landing-page-sections.webp", alt: "Six sections of the bathroom remodeling landing page: hero, problems, services, project gallery, benefits and homeowner reviews", h: 1460 },
+    ],
+  },
+  {
+    slug: "devzoo-agency-website",
+    name: "Devzoo: digital agency website in Next.js",
+    kind: "Client project",
+    industry: "Agency services",
+    h1: "One clear site for a four-service agency.",
+    sub: "A Next.js website for Devzoo, a digital agency for startups: web development, digital marketing, graphic design and video editing on one clear site.",
+    result: "Live at thedevzoo.com. Four services explained on one site, with a call bookable from every page.",
+    client: "Devzoo, a digital agency for startups and small businesses",
+    timeline: "July 2026",
+    url: "https://thedevzoo.com",
+    role: "Design and development",
+    problem:
+      "An agency that offers four services can easily look scattered. Devzoo needed one site that explains everything it does in a few seconds and makes it easy for a startup founder to book a call.",
+    solution: [
+      { t: "Clear positioning", d: "A bold hero, \"Your Business. Digitized. Done Right.\", with two actions: book a call or see the work." },
+      { t: "One roof, four services", d: "Web development, digital marketing, graphic design and video editing, each with its own page and call to action." },
+      { t: "Trust built in", d: "A 4-step process section, proof points and client testimonials." },
+      { t: "Easy to contact", d: "Calendly booking and a floating WhatsApp button on every page." },
+      { t: "Fast and polished", d: "Next.js with Framer Motion animations, optimized for speed and SEO." },
+    ],
+    results: [
+      "Live at thedevzoo.com",
+      "All four services explained on one site, each with its own page",
+      "A call can be booked from every page, by Calendly or WhatsApp",
+    ],
+    tech: ["Next.js", "React", "Framer Motion", "Calendly", "WhatsApp integration"],
+    img: "/devzoo-agency-website.webp",
+    alt: "Devzoo digital agency website home page on a laptop, with the services and proof sections",
+    shots: [
+      { src: "/devzoo-agency-website-process-testimonials.webp", alt: "Devzoo website process section and client testimonials section", h: 1500 },
+      { src: "/devzoo-agency-website-sections.webp", alt: "Six sections of the Devzoo agency website: hero, services, process, proof, testimonials and call to action", h: 1192 },
+    ],
   },
   {
     slug: "rice-mill-erp",
@@ -83,8 +123,13 @@ export const studies: Study[] = [
       "In daily use by the owner and the accountant",
     ],
     tech: ["React 18", "TypeScript", "Vite", "Tailwind", "Radix UI", "React Query", "Zustand", "Express", "Drizzle ORM", "SQLite", "Playwright (PDF)", "Socket.io", "Electron", "Sentry"],
-    img: U("photo-1586201375761-83865001e31c"),
-    alt: "Close view of milled white rice grains",
+    img: "/rice-mill-erp-software.webp",
+    alt: "Rice mill ERP software dashboard with a product stock chart, a stock report and a cash ledger",
+    shots: [
+      { src: "/rice-mill-erp-purchases-stock-report.webp", alt: "Rice mill ERP purchases list and stock report with quantities and closing values per paddy variety", h: 1560 },
+      { src: "/rice-mill-erp-cash-receipts-cash-in-hand.webp", alt: "Rice mill ERP cash receipts list and cash in hand screen with the day's receipts and payments", h: 1560 },
+      { src: "/rice-mill-erp-screens.webp", alt: "Six screens from the rice mill ERP: setup, purchases, products, stock report, cash receipts and cash in hand", h: 1278 },
+    ],
   },
   {
     slug: "oil-agency-pos",
@@ -115,8 +160,13 @@ export const studies: Study[] = [
       "In daily use by 3 to 5 staff",
     ],
     tech: ["Electron", "React", "TypeScript", "React Hook Form", "Zod", "Zustand", "Express", "Prisma", "Argon2", "Helmet"],
-    img: U("photo-1474979266404-7eaacbcd87c5"),
-    alt: "Glass bottle of cooking oil on a kitchen counter",
+    img: "/oil-agency-pos-software.webp",
+    alt: "Oil and ghee agency POS software: sale screen with product details and accounting windows",
+    shots: [
+      { src: "/oil-agency-pos-supplier-purchases.webp", alt: "Oil agency POS purchase history and a supplier invoice with payments and the amount due", h: 1560 },
+      { src: "/oil-agency-pos-trial-balance-balance-sheet.webp", alt: "Oil agency POS accounting: trial balance and balance sheet reports", h: 1560 },
+      { src: "/oil-agency-pos-screens.webp", alt: "Six screens from the oil agency POS: sale, products, product details, purchases, trial balance and journals", h: 1268 },
+    ],
   },
   {
     slug: "offline-first-pos",
@@ -232,8 +282,12 @@ export const studies: Study[] = [
       "The backend for booking, reviews, users and AI hairstyle suggestions",
     ],
     tech: ["AdonisJS", "MySQL", "Face-shape detection model", "React", "Material UI", "MobX", "Day.js", "React Calendar", "Axios"],
-    img: U("photo-1585747860715-2ba37e788b70"),
-    alt: "Barber shop with three leather chairs in front of a brick wall",
+    img: "/salon-booking-website.webp",
+    alt: "Salon booking website home page with virtual closet and AI hairstyle suggestion screens",
+    shots: [
+      { src: "/salon-booking-website-pages.webp", alt: "Six customer screens from the salon platform: home, AI styles, virtual closet, barbers, booking and reviews", h: 1140 },
+      { src: "/salon-booking-admin-barber-dashboard.webp", alt: "Salon booking platform admin barber list and barber dashboard with an appointment calendar", h: 1500 },
+    ],
   },
 ];
 
@@ -252,13 +306,13 @@ export const work = {
 export const byId = (slug: string) => studies.find((s) => s.slug === slug);
 
 /** Per-page metadata. `title` is the bare page title: the root layout's template appends the site name. Open Graph isn't templated, so it gets the full string. */
-export function meta(title: string, description: string, path: string, image?: string): Metadata {
+export function meta(title: string, description: string, path: string, image?: { url: string; alt: string }): Metadata {
   const full = `${title} | ${SITE.name}`;
   return {
     title,
     description,
     alternates: { canonical: path },
     openGraph: { title: full, description, url: path, siteName: SITE.name, type: "article", locale: "en_US", ...(image && { images: [image] }) },
-    twitter: { card: "summary_large_image", title: full, description },
+    twitter: { card: "summary_large_image", title: full, description, ...(image && { images: [image] }) },
   };
 }
