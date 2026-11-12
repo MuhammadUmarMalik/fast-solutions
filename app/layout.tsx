@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import { SITE, seo, answer, keywords, solution } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
 
 const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"], display: "swap", weight: ["400", "500", "600", "700", "800"] });
 const body = Instrument_Sans({ variable: "--font-body", subsets: ["latin"], display: "swap" });
@@ -23,9 +24,7 @@ export const viewport: Viewport = { themeColor: "#f6f5ee" };
 const org = `${SITE.url}/#org`;
 const person = `${SITE.url}/#founder`;
 // Site-wide entities only (who we are). Page-specific markup is emitted by each page via <JsonLd />.
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
+const graph = [
     { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: SITE.url, name: SITE.name, publisher: { "@id": org }, inLanguage: "en" },
     { "@type": ["Organization", "ProfessionalService"], "@id": org, name: SITE.name, url: SITE.url, description: answer.a,
       logo: `${SITE.url}/apple-icon`, image: `${SITE.url}/opengraph-image`, telephone: SITE.phone, priceRange: "$$",
@@ -36,14 +35,13 @@ const jsonLd = {
         itemListElement: solution.services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.t, description: s.d, url: `${SITE.url}${s.href}`, provider: { "@id": org } } })) } },
     { "@type": "Person", "@id": person, name: SITE.founder, jobTitle: "Software Engineer & Designer", image: `${SITE.url}/umar.webp`,
       worksFor: { "@id": org }, sameAs: [SITE.linkedin, SITE.github, SITE.instagram] },
-  ],
-};
+];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <JsonLd graph={graph} />
         {children}
       </body>
     </html>
