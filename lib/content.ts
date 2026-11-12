@@ -141,8 +141,6 @@ export const solution = {
       t: "Fast, modern websites",
       d: "Custom Next.js sites built for speed, mobile and conversions.",
       href: "/services/web-design-development",
-      img: U("photo-1547658719-da2b51169166"),
-      alt: "Code editor open on a web development workstation",
     },
     {
       t: "Lead generation",
@@ -163,8 +161,6 @@ export const solution = {
       t: "Custom software",
       d: "Booking systems, quoting tools, client portals and internal dashboards built for how you work.",
       href: "/services/custom-software",
-      img: U("photo-1551836022-d5d88e9218df"),
-      alt: "Small business team planning a custom software workflow",
     },
   ],
   objection: {

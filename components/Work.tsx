@@ -46,7 +46,7 @@ export function WorkIndex() {
 
 export function CaseStudy({ study: s }: { study: Study }) {
   const next = studies[(studies.findIndex((x) => x.slug === s.slug) + 1) % studies.length];
-  const facts = [["Client", s.client], ["Timeline", s.timeline], ["Role", s.role], ["Type", s.kind]].filter((f): f is [string, string] => Boolean(f[1]));
+  const facts = [["Client", s.client], ["Timeline", s.timeline], ["Role", s.role], ["Type", s.kind], ["Live site", s.url]].filter((f): f is [string, string] => Boolean(f[1]));
 
   return (
     <Frame>
@@ -67,7 +67,7 @@ export function CaseStudy({ study: s }: { study: Study }) {
 
             <Reveal delay={0.12} className="mt-14 md:mt-20">
               <Shell core="bg-putty">
-                <div className="relative aspect-[4/3] md:aspect-[21/9]">
+                <div className="relative aspect-[28/15]">
                   <Image src={s.img} alt={s.alt} fill priority sizes="(min-width: 1240px) 1108px, 100vw" className="object-cover" />
                 </div>
               </Shell>
@@ -78,7 +78,11 @@ export function CaseStudy({ study: s }: { study: Study }) {
               {facts.map(([k, v]) => (
                 <div key={k}>
                   <dt className="text-sm text-muted">{k}</dt>
-                  <dd className="mt-1.5 text-pretty font-medium">{v}</dd>
+                  <dd className="mt-1.5 text-pretty font-medium">
+                    {v.startsWith("https://") ? (
+                      <a href={v} target="_blank" rel="noopener" className={`rounded underline decoration-line-strong underline-offset-4 transition-colors duration-200 hover:text-accent-ink ${ring}`}>{v.slice(8)}</a>
+                    ) : v}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -116,6 +120,21 @@ export function CaseStudy({ study: s }: { study: Study }) {
             </ol>
           </div>
         </section>
+
+        {/* screens: real product mockups, stacked full width at every breakpoint */}
+        {s.shots && (
+          <section aria-label="Screens" className="pt-24 md:pt-32">
+            <div className={`${wrap} grid gap-6 md:gap-10`}>
+              {s.shots.map((shot) => (
+                <Reveal key={shot.src}>
+                  <Shell core="bg-putty">
+                    <Image src={shot.src} alt={shot.alt} width={2800} height={shot.h} loading="lazy" sizes="(min-width: 1240px) 1108px, 100vw" className="h-auto w-full" />
+                  </Shell>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* results: the one deliberate dark section */}
         <section className="on-dark mx-2 mt-24 rounded-[2.5rem] bg-dark py-24 text-on-dark md:mx-4 md:mt-32 md:py-32">

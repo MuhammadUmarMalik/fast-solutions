@@ -29,7 +29,7 @@ export function GET() {
 
     `## Case studies`,
     ...studies.map((s) => [
-      `### ${s.name}\nURL: ${SITE.url}/work/${s.slug}\nType: ${s.kind}. Industry: ${s.industry}. Client: ${s.client}.${s.timeline ? ` Timeline: ${s.timeline}.` : ""} Role: ${s.role}.`,
+      `### ${s.name}\nURL: ${SITE.url}/work/${s.slug}\nType: ${s.kind}. Industry: ${s.industry}. Client: ${s.client}.${s.timeline ? ` Timeline: ${s.timeline}.` : ""} Role: ${s.role}.${s.url ? ` Live site: ${s.url}.` : ""}`,
       `Problem: ${s.problem}`,
       `Solution:\n${list(s.solution)}`,
       `Results:\n${s.results.map((r) => `- ${r}`).join("\n")}`,
