@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/content";
 
 /** Page-level structured data. Only describe what is visible on the page that renders it. */
-export function JsonLd({ graph }: { graph: object[] }) {
+export function JsonLd({ graph }: { graph: readonly object[] }) {
   const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
 }
