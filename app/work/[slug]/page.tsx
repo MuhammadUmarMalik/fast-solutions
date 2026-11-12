@@ -4,18 +4,18 @@ import { JsonLd, ORG, crumbs } from "@/components/JsonLd";
 import { studies, byId, meta } from "@/lib/work";
 import { SITE } from "@/lib/content";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
 export const generateStaticParams = () => studies.map((s) => ({ slug: s.slug }));
 
-export function generateMetadata({ params }: Props) {
-  const s = byId(params.slug);
+export async function generateMetadata({ params }: Props) {
+  const s = byId((await params).slug);
   return s ? meta(s.name, s.sub, `/work/${s.slug}`, { url: s.img, alt: s.alt }) : {};
 }
 
-export default function Page({ params }: Props) {
-  const s = byId(params.slug);
+export default async function Page({ params }: Props) {
+  const s = byId((await params).slug);
   if (!s) notFound();
   const url = `${SITE.url}/work/${s.slug}`;
   // Cover first, then the extra screens. Captions reuse the alt text so Google Images gets the same description as screen readers.

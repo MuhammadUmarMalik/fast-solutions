@@ -1,3 +1,29 @@
-{"name":"softex-solutions","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},
-"dependencies":{"next":"14.2.15","react":"18.3.1","react-dom":"18.3.1","framer-motion":"11.11.1","mobx":"6.13.5","mobx-react-lite":"4.0.7"},
-"devDependencies":{"typescript":"5.6.3","@types/node":"20.16.11","@types/react":"18.3.11","tailwindcss":"3.4.14","postcss":"8.4.47","autoprefixer":"10.4.20"}}
+{
+  "name": "softex-solutions",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "framer-motion": "11.18.2",
+    "mobx": "6.13.5",
+    "mobx-react-lite": "4.1.1",
+    "next": "15.5.29",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.16.11",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.5.32",
+    "tailwindcss": "3.4.14",
+    "typescript": "5.6.3"
+  },
+  "overrides": {
+    "postcss": "$postcss"
+  }
+}

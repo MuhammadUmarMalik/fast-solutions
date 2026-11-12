@@ -6,18 +6,20 @@ import { topics, topicBy, topicHref } from "@/lib/pages";
 import { meta } from "@/lib/work";
 import { SITE } from "@/lib/content";
 
-type Props = { params: { group: string; slug: string } };
+type Props = { params: Promise<{ group: string; slug: string }> };
 
 export const dynamicParams = false;
 export const generateStaticParams = () => topics.map((t) => ({ group: t.group, slug: t.slug }));
 
-export function generateMetadata({ params }: Props) {
-  const t = topicBy(params.group, params.slug);
+export async function generateMetadata({ params }: Props) {
+  const { group, slug } = await params;
+  const t = topicBy(group, slug);
   return t ? meta(t.title, t.description, topicHref(t)) : {};
 }
 
-export default function Page({ params }: Props) {
-  const t = topicBy(params.group, params.slug);
+export default async function Page({ params }: Props) {
+  const { group, slug } = await params;
+  const t = topicBy(group, slug);
   if (!t) notFound();
   const url = `${SITE.url}${topicHref(t)}`;
   return (
