@@ -34,7 +34,7 @@ const jsonLd = {
       founder: { "@id": person }, sameAs: [SITE.linkedin, SITE.instagram, SITE.github], areaServed: "Worldwide", knowsAbout: keywords,
       hasOfferCatalog: { "@type": "OfferCatalog", name: "Services",
         itemListElement: solution.services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.t, description: s.d, url: `${SITE.url}${s.href}`, provider: { "@id": org } } })) } },
-    { "@type": "Person", "@id": person, name: SITE.founder, jobTitle: "Software Engineer & Designer", image: `${SITE.url}/umar.png`,
+    { "@type": "Person", "@id": person, name: SITE.founder, jobTitle: "Software Engineer & Designer", image: `${SITE.url}/umar.webp`,
       worksFor: { "@id": org }, sameAs: [SITE.linkedin, SITE.github, SITE.instagram] },
   ],
 };

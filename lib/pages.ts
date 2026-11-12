@@ -47,7 +47,7 @@ export const topics: Topic[] = [
       { q: "Why Next.js instead of WordPress, Wix or Squarespace?", a: "Next.js serves pre-rendered pages and optimised images without plugin overhead, which keeps the site fast on phones. You also own the code and can host it anywhere, instead of renting a site builder subscription." },
       { q: "Can you redesign my existing website?", a: "Yes. We audit it first. Sometimes it needs a fix, not a rebuild, and we'll tell you which." },
     ],
-    studies: ["bathroom-remodeling-landing-page"],
+    studies: ["bathroom-remodeling-landing-page", "devzoo-agency-website"],
   },
   {
     group: "services",
