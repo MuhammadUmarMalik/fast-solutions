@@ -11,7 +11,7 @@ export const generateStaticParams = () => studies.map((s) => ({ slug: s.slug }))
 
 export async function generateMetadata({ params }: Props) {
   const s = byId((await params).slug);
-  return s ? meta(s.name, s.sub, `/work/${s.slug}`, { url: s.img, alt: s.alt }) : {};
+  return s ? meta(s.name, s.sub, `/work/${s.slug}`, { url: s.img, alt: s.alt }, "article") : {};
 }
 
 export default async function Page({ params }: Props) {
