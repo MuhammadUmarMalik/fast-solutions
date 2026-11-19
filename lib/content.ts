@@ -13,6 +13,7 @@ export const SITE = {
   phone: "+923256238614",
   country: "PK",
   github: "https://github.com/MuhammadUmarMalik",
+  gtm: "GTM-WPZFBLSC",
 };
 
 // Default <title> and meta description (home page).

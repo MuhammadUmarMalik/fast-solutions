@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import { SITE, seo, answer, keywords, solution } from "@/lib/content";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -42,6 +43,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <JsonLd graph={graph} />
+        {/* Google Tag Manager. The GA4 tag itself is configured inside the GTM container. */}
+        <Script id="gtm-loader" strategy="afterInteractive" src={`https://www.googletagmanager.com/gtm.js?id=${SITE.gtm}`} />
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());`}
+        </Script>
         {children}
       </body>
     </html>
