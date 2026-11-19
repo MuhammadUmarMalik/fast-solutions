@@ -1,6 +1,6 @@
 # Softex Solutions
 
-> Softex Solutions is a web studio led by software engineer and designer Muhammad Umar Malik. It builds fast Next.js websites, lead generation funnels, local SEO and AI visibility, business automation and custom software for owner-run local service businesses (clinics, dental and med-spa practices, contractors, salons, law and accounting firms, home services). Fixed price, design approved before code, most websites live in 12-22 days. Clients worldwide.
+> Softex Solutions is a web studio and software agency led by software engineer and designer Muhammad Umar Malik. It builds fast Next.js websites, lead generation funnels, local SEO and AI visibility, business automation and custom software for owner-run local service businesses (clinics, dental and med-spa practices, contractors, salons, law and accounting firms, home services). It also builds full-stack web applications, mobile apps, backend systems and AI-powered features for startups, small businesses and agencies. Fixed price, design approved before code, most websites live in 12-22 days. Clients worldwide.
 
 ## Services
 - Fast, modern websites: custom Next.js sites built for speed, mobile and conversions
@@ -8,6 +8,14 @@
 - SEO and AI visibility: technical SEO, structured data, local signals, AI-assistant readiness
 - Business automation: follow-ups, reminders, lead routing, reporting
 - Custom software: booking systems, quoting tools, client portals, internal dashboards
+
+## Development services
+- Full-stack web apps: React, Next.js, Node.js and TypeScript — dashboards, marketplaces, internal tools
+- Mobile apps: React Native apps for iOS and Android
+- Backend systems and APIs: Node.js, NestJS and REST APIs, payments (Stripe), admin features
+- AI-powered features and assistants: RAG-grounded assistants and chatbots, and AI features inside products
+- WordPress websites for small businesses
+- Proof: a rice mill ERP (operations, accounting, payroll), an offline-first POS, a books and tutoring marketplace, an e-commerce backend with Stripe and JazzCash, and a salon booking platform with AI hairstyle suggestions — all under Case studies below.
 
 ## Process (5 steps)
 1. Find the problem: site, funnel and competitor audit
@@ -34,6 +42,9 @@
 - For salons and spas: https://softexsolutions.tech/industries/salons-spas
 - For retail and wholesale (POS): https://softexsolutions.tech/industries/retail-wholesale-pos
 - Case studies: https://softexsolutions.tech/work
+- Rice mill ERP case study: https://softexsolutions.tech/work/rice-mill-erp
+- E-commerce backend case study: https://softexsolutions.tech/work/handicrafts-ecommerce-backend
+- Marketplace case study: https://softexsolutions.tech/work/knowledge-exchange-marketplace
 - Contact and free website review: https://softexsolutions.tech/contact
 - Process: https://softexsolutions.tech/#process
 - FAQ: https://softexsolutions.tech/#faq

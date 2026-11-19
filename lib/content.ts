@@ -470,5 +470,13 @@ export const keywords = [
   "AI search optimization",
   "website for clinics",
   "website for contractors",
+  "full-stack developer",
+  "hire full-stack developer",
+  "Next.js development agency",
+  "React Native app development",
+  "custom software development company",
+  "AI chatbot development",
+  "Node.js backend development",
+  "NestJS API development",
   "Muhammad Umar Malik",
 ];

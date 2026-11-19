@@ -305,14 +305,14 @@ export const work = {
 
 export const byId = (slug: string) => studies.find((s) => s.slug === slug);
 
-/** Per-page metadata. `title` is the bare page title: the root layout's template appends the site name. Open Graph isn't templated, so it gets the full string. */
-export function meta(title: string, description: string, path: string, image?: { url: string; alt: string }): Metadata {
+/** Per-page metadata. `title` is the bare page title: the root layout's template appends the site name. Open Graph isn't templated, so it gets the full string. `type` defaults to "website"; pass "article" for case-study pages. */
+export function meta(title: string, description: string, path: string, image?: { url: string; alt: string }, type: "website" | "article" = "website"): Metadata {
   const full = `${title} | ${SITE.name}`;
   return {
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { title: full, description, url: path, siteName: SITE.name, type: "article", locale: "en_US", ...(image && { images: [image] }) },
+    openGraph: { title: full, description, url: path, siteName: SITE.name, type, locale: "en_US", ...(image && { images: [image] }) },
     twitter: { card: "summary_large_image", title: full, description, ...(image && { images: [image] }) },
   };
 }
