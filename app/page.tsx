@@ -12,6 +12,8 @@ export default function Page() {
       <JsonLd graph={[
         { "@type": "WebPage", "@id": `${SITE.url}/#webpage`, url: SITE.url, name: seo.title, description: seo.description,
           isPartOf: { "@id": `${SITE.url}/#website` }, about: ORG, inLanguage: "en", primaryImageOfPage: `${SITE.url}/opengraph-image` },
+        // Same @id as the site-wide Organization/ProfessionalService in layout.tsx, so consumers merge them into one entity. Remote studio: no street address.
+        { "@type": "ProfessionalService", "@id": ORG["@id"], name: SITE.name, url: SITE.url, telephone: SITE.phone, email: SITE.email, areaServed: "Worldwide" },
         faqPage(faqs),
         { "@type": "HowTo", name: "How a Softex Solutions project runs, from audit to launch", totalTime: "P22D",
           step: process.steps.map((s, i) => ({ "@type": "HowToStep", position: i + 1, name: s.t, text: s.d })) },

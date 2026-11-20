@@ -22,8 +22,9 @@ export function GET() {
 
     ...topics.map((t) => [
       `## ${t.title}\nURL: ${SITE.url}${topicHref(t)}\n\n${t.answer}`,
-      `Problems it solves:\n${list(t.problems)}`,
-      `What is built:\n${list(t.build)}`,
+      ...(t.body ?? []).map((s) => `### ${s.h}\n${s.p.map((x) => x.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1 ($2)")).join("\n\n")}`),
+      ...(t.problems.length ? [`Problems it solves:\n${list(t.problems)}`] : []),
+      ...(t.build.length ? [`What is built:\n${list(t.build)}`] : []),
       qa(t.faqs),
     ].join("\n\n")),
 

@@ -1,8 +1,9 @@
-// Service and industry landing pages. One entry = one indexable page at /{group}/{slug}.
+// Service, industry and guide pages. One entry = one indexable page at /{group}/{slug}.
 // Rules: no invented clients or numbers. Proof comes from the case studies listed in `studies` (slugs from lib/work.ts).
+import { summary } from "./content";
 
 export type Topic = {
-  group: "services" | "industries";
+  group: "services" | "industries" | "guides";
   slug: string;
   name: string; // short label for links
   title: string; // <title>, the layout appends " | Softex Solutions"
@@ -11,8 +12,12 @@ export type Topic = {
   h1: string;
   sub: string;
   answer: string; // answer capsule: the page in one quotable paragraph
-  problems: { t: string; d: string }[];
-  build: { t: string; d: string }[];
+  summary?: string; // optional executive summary block (GEO), shown above the answer capsule
+  updated?: string; // YYYY-MM-DD of the last real content change, used for sitemap lastmod and Article dateModified
+  published?: string; // guides only: YYYY-MM-DD
+  body?: { h: string; p: string[] }[]; // long-form sections (guides). Paragraphs may contain [text](/path) links
+  problems: { t: string; d: string }[]; // empty array hides the section
+  build: { t: string; d: string }[]; // empty array hides the section
   faqs: { q: string; a: string }[];
   studies: string[];
 };
@@ -120,6 +125,8 @@ export const topics: Topic[] = [
     eyebrow: "Custom software",
     h1: "Custom software built around how you work.",
     sub: "ERP, POS, booking and accounting systems for businesses that have outgrown paper registers and off-the-shelf tools.",
+    summary: summary.customSoftware,
+    updated: "2026-11-20",
     answer: "Softex Solutions builds custom business software for small and mid-sized companies: ERP and accounting systems, point-of-sale apps, booking and quoting tools, client portals and dashboards. Recent projects include an ERP that replaced paper registers at a rice mill and offline-first desktop POS systems for a grocery store and a wholesale agency. Projects are fixed price and the client owns the source code.",
     problems: [
       { t: "Off-the-shelf software doesn't fit.", d: "You pay for several tools that each do part of the job, then patch the gaps with paper and memory." },
@@ -263,6 +270,65 @@ export const topics: Topic[] = [
       { q: "Can it handle credit customers and suppliers?", a: "Yes. Customer and supplier balances, payments and the cashbook update automatically with every sale and purchase." },
     ],
     studies: ["offline-first-pos", "oil-agency-pos", "rice-mill-erp"],
+  },
+  {
+    group: "guides",
+    slug: "website-not-getting-leads",
+    name: "Why your website gets visitors but no calls",
+    title: "Why Your Website Gets Visitors but No Calls",
+    description: "Your website gets visitors but no calls? The 5 usual causes — and how to fix each one.",
+    eyebrow: "Guide",
+    h1: "Why your website gets visitors but no calls.",
+    sub: "The five usual causes, how to check each one yourself, and what a fix looks like.",
+    answer: "Most websites that get visitors but no calls have one or more of five problems: slow loading on phones, no clear call to action, no trust signals, confusing navigation, or no follow-up on the enquiries that do arrive. Each one can be diagnosed in an afternoon with your own phone, a free PageSpeed test and your own contact form.",
+    published: "2026-11-20",
+    updated: "2026-11-20",
+    body: [
+      { h: "The symptom: traffic, but a quiet phone", p: [
+        "You check your analytics and the visitors are there. People are finding the site, scrolling a little and leaving. Nobody calls, nobody fills in the form, nobody books. It is one of the most common problems local service businesses bring to us, and it is rarely a traffic problem. The people who arrive are not turning into customers, which means something on the site is getting in the way.",
+        "Before you pay for more ads or more SEO, find out why the visitors you already have are leaving. The cause is usually one of five things, and each one can be checked in an afternoon.",
+      ] },
+      { h: "Cause 1: the site is slow on a phone", p: [
+        "Most local searches happen on a phone, often with one hand and little patience. If the page takes seconds to appear, the visitor goes back to the results and calls the next business on the list.",
+        "How to diagnose it: open your site on your own phone using mobile data, not office wifi. Then run it through Google's free PageSpeed Insights and look at the mobile score. If it feels slow to you, it feels slow to every customer.",
+      ] },
+      { h: "Cause 2: there is no clear call to action", p: [
+        "A visitor who has to hunt for the phone number or the booking button usually does not hunt for long. Every page should make one next step obvious: call, book or request a quote.",
+        "How to diagnose it: open the home page on a phone and give yourself five seconds. Can you tell what to do next, and can you see the phone number or button without scrolling? Better still, ask someone who has never seen the site to try to book you, and watch where they get stuck.",
+      ] },
+      { h: "Cause 3: nothing builds trust", p: [
+        "A stranger deciding whether to let you into their home or hand over money is looking for proof. Reviews, photos of finished work, guarantees and licences answer the question \"is this business real?\". If they are buried or missing, visitors hesitate, and hesitating visitors leave.",
+        "How to diagnose it: check whether reviews, real project photos and any guarantees sit next to the form or the call button, not three scrolls away or on a separate page nobody opens.",
+      ] },
+      { h: "Cause 4: the navigation is confusing", p: [
+        "A visitor looking for one specific service who lands on a page about everything cannot tell whether you do what they need. A long menu, one page for all services, or no page for the area you cover all lead to the same result: they give up.",
+        "How to diagnose it: pick one service you offer and try to reach a page about it from the home page in two clicks. Then search Google for that service plus your area and see which of your pages comes up. If the page does not match the search, that is the gap.",
+      ] },
+      { h: "Cause 5: nobody follows up", p: [
+        "Some visitors do fill in the form, and the lead still goes cold. The enquiry lands in an inbox nobody checks quickly, the quote goes out and nobody chases it, and the job goes to whoever called back first.",
+        "How to diagnose it: submit your own contact form and time how long a reply takes. Check where enquiries land and who is responsible for the next step. If the honest answer is \"whoever remembers\", that is the leak. It is also the hardest one to spot, because a lost lead never shows up in your analytics.",
+      ] },
+      { h: "Which one to check first", p: [
+        "Start with the cheapest checks. Speed and the call to action take minutes to test, so do those first. Trust signals and navigation take longer to judge, so ask two or three real customers what they looked for on your site and could not find. Then look at what happens after someone makes contact.",
+        "Write down which of the five fail. Most sites that are not producing calls fail more than one, and fixing them in that order gets the most visible improvement for the least work.",
+      ] },
+      { h: "What a fix looks like", p: [
+        "The fix follows the diagnosis. A slow, template-looking or hard-to-use site usually needs a rebuild or a performance fix: that is [web design and development](/services/web-design-development). A site that is fine but not found for the right searches needs clean structure, a page for each service and area, and [local SEO and AI visibility](/services/local-seo-ai-visibility). Leads that go cold need [business automation](/services/business-automation): enquiries in one place, automatic confirmations and reminders to follow up.",
+        "A real example: a US bathroom remodeler needed a page that builds trust and makes it easy to call or request a quote. We built one fast Next.js landing page with a lead form, a click-to-call popup, reviews, trust badges and a project gallery near the form, service-area pages for local search, and an FAQ that answers objections. It brings in 20+ leads and enquiries a month, scores 90+ on PageSpeed, and the client came back for more work. Read the full [bathroom remodeler case study](/work/bathroom-remodeling-landing-page).",
+        "Sometimes the answer is smaller than a rebuild. We audit the existing site first and tell you honestly whether it needs a fix or a rewrite.",
+      ] },
+      { h: "Where to start", p: [
+        "Go through the five checks above and note which ones fail. If you would like a second pair of eyes, send us your site and the problem that costs you most through the [free website review](/contact). We reply on WhatsApp with what we would fix first. It is free, with no obligation and no call needed.",
+      ] },
+    ],
+    problems: [],
+    build: [],
+    faqs: [
+      { q: "Why does my website get traffic but no leads?", a: "Usually because of one or more of five problems: the site loads slowly on phones, there is no clear call to action, nothing builds trust, the navigation is confusing, or enquiries are not followed up. Each can be checked in an afternoon." },
+      { q: "How do I know if my website is too slow?", a: "Open it on your phone using mobile data and run Google's free PageSpeed Insights on it. If the page takes seconds to appear on your phone, visitors are leaving before they see it." },
+      { q: "Should I rebuild my website or fix it?", a: "It depends on the cause. We audit the existing site first. Sometimes it needs a fix, not a rebuild, and we'll tell you which." },
+    ],
+    studies: ["bathroom-remodeling-landing-page"],
   },
 ];
 
