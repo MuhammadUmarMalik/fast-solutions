@@ -44,9 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <JsonLd graph={graph} />
         {/* Google Tag Manager. The GA4 tag itself is configured inside the GTM container. */}
-        <Script id="gtm-loader" strategy="afterInteractive" src={`https://www.googletagmanager.com/gtm.js?id=${SITE.gtm}`} />
-        <Script id="gtm-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());`}
+        {/* Official GTM snippet: the gtm.js event it pushes is what fires the "All Pages" trigger. */}
+        <Script id="gtm" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${SITE.gtm}');`}
         </Script>
         {children}
       </body>
