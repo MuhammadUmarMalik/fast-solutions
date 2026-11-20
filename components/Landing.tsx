@@ -9,7 +9,7 @@ import { MotionConfig, motion, useScroll, useTransform, useReducedMotion, type M
 import { observer } from "mobx-react-lite";
 import { uiStore as ui } from "@/store/uiStore";
 import {
-  SITE, CTA, nav, hero, marquee, problems, outcome, solution, process, stack, proof, guarantees, objections, faqs, final,
+  SITE, CTA, nav, summary, hero, marquee, problems, outcome, solution, process, stack, proof, guarantees, objections, faqs, final,
 } from "@/lib/content";
 import { studies, work, type Study } from "@/lib/work";
 import { inGroup, topicHref } from "@/lib/pages";
@@ -784,6 +784,21 @@ function Guarantee() {
   );
 }
 
+/* ---------- executive summary (quotable block for AI assistants) ---------- */
+
+export function ExecSummary({ text }: { text: string }) {
+  return (
+    <section aria-labelledby="exec-summary" className="border-t border-line py-16 md:py-24">
+      <div className={wrap}>
+        <Reveal>
+          <h2 id="exec-summary" className={`${eyebrow} text-accent-ink`}>Executive summary</h2>
+          <p className="mt-6 max-w-[62ch] text-pretty text-[17px] leading-[1.6] text-ink-soft md:text-lg">{text}</p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- objections + faq ---------- */
 
 const Faq = observer(function Faq() {
@@ -793,7 +808,7 @@ const Faq = observer(function Faq() {
         const open = ui.openFaq === i;
         return (
           <li key={f.q} className="border-b border-line">
-            <h3>
+            <h2>
               <button
                 type="button"
                 id={`faq-q-${i}`}
@@ -808,7 +823,7 @@ const Faq = observer(function Faq() {
                   <span className="absolute h-3 w-px bg-ink" />
                 </span>
               </button>
-            </h3>
+            </h2>
             <div
               id={`faq-a-${i}`}
               role="region"
@@ -973,6 +988,7 @@ export default function Landing() {
     <Frame>
       <Hero />
       <Marquee />
+      <ExecSummary text={summary.home} />
       <Problems />
       <Outcome />
       <Solution />

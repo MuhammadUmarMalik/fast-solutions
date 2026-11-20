@@ -25,7 +25,10 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <JsonLd graph={[
-        { "@type": "Service", "@id": `${url}#service`, name: t.title, serviceType: t.name, description: t.answer, url, provider: ORG, areaServed: "Worldwide" },
+        t.group === "guides"
+          ? { "@type": "Article", "@id": `${url}#article`, headline: t.title, description: t.description, url, mainEntityOfPage: url, inLanguage: "en",
+              author: { "@id": `${SITE.url}/#founder` }, publisher: ORG, datePublished: t.published, dateModified: t.updated ?? t.published }
+          : { "@type": "Service", "@id": `${url}#service`, name: t.title, serviceType: t.name, description: t.answer, url, provider: ORG, areaServed: "Worldwide" },
         faqPage(t.faqs),
         crumbs([t.name, topicHref(t)]),
       ]} />

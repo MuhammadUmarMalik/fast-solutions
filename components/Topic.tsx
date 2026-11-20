@@ -1,13 +1,25 @@
 "use client";
 // Service and industry landing pages. Same Quiet Tech system as Landing.tsx and Work.tsx.
 import Link from "next/link";
-import { Frame, Reveal, BookCall, Ghost, WorkRows, wrap, h2, eyebrow, ring } from "./Landing";
+import { Frame, Reveal, BookCall, Ghost, WorkRows, ExecSummary, wrap, h2, eyebrow, ring } from "./Landing";
 import { CtaBand, h1 } from "./Work";
 import { studies } from "@/lib/work";
 import { topics, topicHref, type Topic } from "@/lib/pages";
 import { CTA } from "@/lib/content";
 
 const label = "font-display text-xl font-medium tracking-[-0.02em] text-ink-soft";
+
+/** Paragraph text with inline [label](/path) links. */
+function Rich({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(/(\[[^\]]+\]\([^)]+\))/).map((part, i) => {
+        const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        return m ? <Link key={i} href={m[2]} className={`rounded text-ink underline underline-offset-4 ${ring}`}>{m[1]}</Link> : part;
+      })}
+    </>
+  );
+}
 
 /** Native disclosure: no JS, and the answer text stays in the HTML for crawlers. */
 export function FaqList({ faqs }: { faqs: readonly { q: string; a: string }[] }) {
@@ -52,6 +64,8 @@ export function TopicPage({ topic: t }: { topic: Topic }) {
           </div>
         </header>
 
+        {t.summary && <ExecSummary text={t.summary} />}
+
         {/* answer capsule: the whole page in one quotable paragraph */}
         <section className="py-24 md:py-32">
           <div className={wrap}>
@@ -62,6 +76,24 @@ export function TopicPage({ topic: t }: { topic: Topic }) {
           </div>
         </section>
 
+        {t.body && (
+          <section className="border-y border-line bg-surface py-24 md:py-32">
+            <div className={wrap}>
+              <div className="divide-y divide-line border-y border-line">
+                {t.body.map((s) => (
+                  <Reveal key={s.h} className="grid gap-6 py-12 md:grid-cols-12 md:gap-8 lg:gap-16">
+                    <h2 className="font-display text-2xl font-medium tracking-[-0.02em] md:col-span-5 md:text-3xl">{s.h}</h2>
+                    <div className="space-y-5 md:col-span-7">
+                      {s.p.map((para) => <p key={para} className="max-w-[62ch] text-pretty text-ink-soft"><Rich text={para} /></p>)}
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {t.problems.length > 0 && (
         <section className="border-y border-line bg-surface py-24 md:py-32">
           <div className={`${wrap} grid gap-12 md:grid-cols-12 md:gap-8 lg:gap-16`}>
             <div className="md:sticky md:top-32 md:col-span-5 md:self-start">
@@ -79,7 +111,9 @@ export function TopicPage({ topic: t }: { topic: Topic }) {
             </ul>
           </div>
         </section>
+        )}
 
+        {t.build.length > 0 && (
         <section className="py-24 md:py-32">
           <div className={`${wrap} grid gap-12 md:grid-cols-12 md:gap-8 lg:gap-16`}>
             <div className="md:sticky md:top-32 md:col-span-5 md:self-start">
@@ -100,6 +134,7 @@ export function TopicPage({ topic: t }: { topic: Topic }) {
             </ol>
           </div>
         </section>
+        )}
 
         {related.length > 0 && (
           <section className="border-t border-line py-24 md:py-32">

@@ -14,6 +14,13 @@ export const SITE = {
   country: "PK",
   github: "https://github.com/MuhammadUmarMalik",
   gtm: "GTM-WPZFBLSC",
+  email: "support@softexsolutions.tech",
+};
+
+// Sitemap <lastmod>. Bump a date only when that page's content really changes: a lastmod that moves on every build is ignored by Google.
+export const lastmod = {
+  site: "2026-11-19", // last site-wide change (GTM, llms.txt, structured data)
+  home: "2026-11-20",
 };
 
 // Default <title> and meta description (home page).
@@ -449,6 +456,12 @@ export const contact = {
   ],
   submit: "Send on WhatsApp",
   micro: "Opens WhatsApp with your message ready to send.",
+};
+
+// GEO: quotable executive summaries (80-120 words). Every claim traces to the case studies and copy elsewhere on the site.
+export const summary = {
+  home: "Softex Solutions is a web studio led by software engineer and designer Muhammad Umar Malik. It fixes slow websites, missing leads, poor Google and AI visibility and manual workflows for local service businesses, and builds custom software when off-the-shelf tools don't fit. Proof comes from real projects: a landing page for a US bathroom remodeler brings in 20+ leads a month and scores 90+ on PageSpeed, and an ERP replaced paper registers at a rice mill. Every project is fixed price, you approve the design before any code is written, and most websites go live in 12 to 22 days.",
+  customSoftware: "Softex Solutions is a web studio led by software engineer and designer Muhammad Umar Malik. For custom software it fixes paper registers, off-the-shelf tools that don't fit and the lack of a live view of the business, building ERP, POS, booking and accounting systems. Proof comes from real projects: an ERP that replaced paper registers at a rice mill, and offline-first desktop POS systems in daily use at a grocery store and a cooking oil and ghee agency in Pakistan. Projects are fixed price, you approve the design before any code is written, you own the source code, and the timeline is set on a free 30-minute discovery call. Most websites go live in 12 to 22 days.",
 };
 
 // AEO answer capsule, used in structured data.

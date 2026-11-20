@@ -41,6 +41,7 @@
 - For dental and medical clinics: https://softexsolutions.tech/industries/dental-medical-clinics
 - For salons and spas: https://softexsolutions.tech/industries/salons-spas
 - For retail and wholesale (POS): https://softexsolutions.tech/industries/retail-wholesale-pos
+- Guide, why a website gets visitors but no calls: https://softexsolutions.tech/guides/website-not-getting-leads
 - Case studies: https://softexsolutions.tech/work
 - Rice mill ERP case study: https://softexsolutions.tech/work/rice-mill-erp
 - E-commerce backend case study: https://softexsolutions.tech/work/handicrafts-ecommerce-backend
