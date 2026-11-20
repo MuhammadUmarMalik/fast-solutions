@@ -111,9 +111,9 @@ const Nav = observer(function Nav() {
     <header className="fixed inset-x-0 top-4 z-50 px-4">
       <div className="glass mx-auto flex h-16 max-w-[1200px] items-center justify-between rounded-full bg-surface/75 pl-5 pr-2 shadow-soft ring-1 ring-ink/[0.06] backdrop-blur-xl">
         <Logo />
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-5 md:flex lg:gap-8">
           {nav.map(([label, href]) => (
-            <a key={href} href={href} className={`rounded text-sm text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>
+            <a key={href} href={href} className={`rounded py-2.5 text-sm text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>
               {label}
             </a>
           ))}
@@ -177,7 +177,7 @@ function HeroMockup() {
   const m = hero.mockup;
   return (
     <div role="img" aria-label={m.label} className="relative">
-      <Shell core="bg-surface" className={layered}>
+      <Shell core="bg-surface" className={`hidden sm:block ${layered}`}>
         {/* browser chrome */}
         <div aria-hidden="true" className="flex items-center gap-3 border-b border-line bg-bg px-3 py-2.5 md:px-4 md:py-3">
           <div className="flex w-12 gap-1.5">
@@ -231,7 +231,7 @@ function HeroMockup() {
         initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: EASE, delay: 0.7 }}
-        className={`absolute -bottom-10 right-3 hidden w-[150px] rounded-[2rem] bg-ink p-1.5 sm:block md:-bottom-14 md:right-6 md:w-[190px] lg:-right-6 lg:w-[220px] ${layered}`}
+        className={`relative mx-auto w-[min(72vw,260px)] rounded-[2rem] bg-ink p-1.5 sm:absolute sm:-bottom-10 sm:right-3 sm:mx-0 sm:w-[150px] md:-bottom-14 md:right-6 md:w-[190px] lg:-right-6 lg:w-[220px] ${layered}`}
       >
         <div className={`${screen} relative aspect-[9/19] overflow-hidden rounded-[calc(2rem-0.375rem)] bg-surface`}>
           <span className="absolute left-1/2 top-[3cqw] h-[5.5cqw] w-[30cqw] -translate-x-1/2 rounded-full bg-ink" />
@@ -243,7 +243,7 @@ function HeroMockup() {
             <span className="flex flex-col gap-[1.4cqw]"><span className="h-[0.8cqw] w-[6cqw] rounded-full bg-ink" /><span className="h-[0.8cqw] w-[6cqw] rounded-full bg-ink" /></span>
           </div>
           <div className="relative mx-[5cqw] aspect-[4/3] overflow-hidden rounded-[5cqw] bg-putty">
-            <Image src={m.image} alt="" fill sizes="220px" className="object-cover" />
+            <Image src={m.image} alt="" fill sizes="260px" className="object-cover" />
           </div>
           <div className="px-[7cqw] pt-[6cqw]">
             <p className="font-display text-[9.5cqw] font-semibold leading-[1.02] tracking-[-0.03em]">{m.h}</p>
@@ -308,7 +308,7 @@ function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className={`${eyebrow} inline-flex items-center gap-2 rounded-full bg-surface px-3.5 py-1.5 text-ink-soft ring-1 ring-line`}
+          className={`${eyebrow} inline-flex items-center gap-2 rounded-full bg-surface px-3.5 max-sm:tracking-[0.08em] py-1.5 text-ink-soft ring-1 ring-line`}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           {hero.eyebrow}
@@ -743,9 +743,9 @@ function Proof() {
                 </figcaption>
               </div>
               <p className="mt-7 text-pretty leading-[1.7] text-ink-soft">{proof.founder.bio}</p>
-              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 border-t border-line pt-6 text-sm">
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-1 border-t border-line pt-5 text-sm">
                 {[["LinkedIn", SITE.linkedin], ["Instagram", SITE.instagram], ["WhatsApp", SITE.whatsapp], ["GitHub", SITE.github]].map(([l, h]) => (
-                  <a key={l} href={h} target="_blank" rel="noopener noreferrer" className={`group inline-flex items-center gap-1.5 rounded font-medium ${ring}`}>
+                  <a key={l} href={h} target="_blank" rel="noopener noreferrer" className={`group inline-flex items-center gap-1.5 rounded py-1 font-medium ${ring}`}>
                     {l}
                     <Arrow className="h-3 w-3 text-muted transition-transform duration-300 ease-expo group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </a>
@@ -889,7 +889,7 @@ function FinalCta() {
         <Reveal delay={0.14} className="mt-12 flex flex-col items-center">
           <BookCall size="lg" />
           <p className="mt-5 text-sm text-muted">{final.micro}</p>
-          <Link href="/contact" className={`mt-4 rounded text-sm font-medium text-accent-ink underline underline-offset-4 ${ring}`}>{final.alt}</Link>
+          <Link href="/contact" className={`mt-3 inline-block rounded py-1 text-sm font-medium text-accent-ink underline underline-offset-4 ${ring}`}>{final.alt}</Link>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mx-auto mt-12 max-w-[56ch] text-pretty text-ink-soft">{final.note}</p>
@@ -912,28 +912,28 @@ function Footer() {
         </div>
         <nav aria-label="Footer" className="md:col-span-3 lg:col-span-2">
           <p className="font-display font-semibold">Explore</p>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-3 space-y-0.5">
             {nav.map(([l, h]) => (
-              <li key={h}><a href={h} className={`rounded text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{l}</a></li>
+              <li key={h}><a href={h} className={`inline-block rounded py-1 text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{l}</a></li>
             ))}
           </ul>
         </nav>
         {(["services", "industries"] as const).map((g) => (
           <nav key={g} aria-label={g} className={`md:col-span-3 ${g === "services" ? "lg:col-span-3" : "lg:col-span-2"}`}>
             <p className="font-display font-semibold capitalize">{g}</p>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-3 space-y-0.5">
               {inGroup(g).map((t) => (
-                <li key={t.slug}><Link href={topicHref(t)} className={`rounded text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{t.name}</Link></li>
+                <li key={t.slug}><Link href={topicHref(t)} className={`inline-block rounded py-1 text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{t.name}</Link></li>
               ))}
             </ul>
           </nav>
         ))}
         <div className="md:col-span-3 lg:col-span-2">
           <p className="font-display font-semibold">Talk to us</p>
-          <ul className="mt-4 space-y-2.5">
-            <li><Link href="/contact" className={`rounded text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{CTA.audit}</Link></li>
+          <ul className="mt-3 space-y-0.5">
+            <li><Link href="/contact" className={`inline-block rounded py-1 text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{CTA.audit}</Link></li>
             {[[CTA.primary, SITE.cta], ["LinkedIn", SITE.linkedin], ["Instagram", SITE.instagram], ["WhatsApp", SITE.whatsapp]].map(([l, h]) => (
-              <li key={l}><a href={h} target="_blank" rel="noopener noreferrer" className={`rounded text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{l}</a></li>
+              <li key={l}><a href={h} target="_blank" rel="noopener noreferrer" className={`inline-block rounded py-1 text-ink-soft transition-colors duration-200 hover:text-ink ${ring}`}>{l}</a></li>
             ))}
           </ul>
         </div>
