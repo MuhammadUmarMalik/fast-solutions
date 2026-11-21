@@ -332,6 +332,14 @@ export const topics: Topic[] = [
   },
 ];
 
+// /guides hub copy.
+export const guidesHub = {
+  title: "Guides for Local Service Businesses",
+  description: "Plain-English guides to the website, search and workflow problems that cost local service businesses customers, and how to fix each one.",
+  h1: "Guides: find the problem, then fix it.",
+  sub: "Plain-English guides to the problems that cost local service businesses customers, with the checks you can run yourself.",
+};
+
 export const topicBy = (group: string, slug: string) => topics.find((t) => t.group === group && t.slug === slug);
 export const inGroup = (group: Topic["group"]) => topics.filter((t) => t.group === group);
 export const topicHref = (t: Topic) => `/${t.group}/${t.slug}`;
