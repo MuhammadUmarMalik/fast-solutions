@@ -282,15 +282,24 @@ export const topics: Topic[] = [
     sub: "The five usual causes, how to check each one yourself, and what a fix looks like.",
     answer: "Most websites that get visitors but no calls have one or more of five problems: slow loading on phones, no clear call to action, no trust signals, confusing navigation, or no follow-up on the enquiries that do arrive. Each one can be diagnosed in an afternoon with your own phone, a free PageSpeed test and your own contact form.",
     published: "2026-11-20",
-    updated: "2026-11-20",
+    updated: "2026-11-21",
     body: [
       { h: "The symptom: traffic, but a quiet phone", p: [
         "You check your analytics and the visitors are there. People are finding the site, scrolling a little and leaving. Nobody calls, nobody fills in the form, nobody books. It is one of the most common problems local service businesses bring to us, and it is rarely a traffic problem. The people who arrive are not turning into customers, which means something on the site is getting in the way.",
         "Before you pay for more ads or more SEO, find out why the visitors you already have are leaving. The cause is usually one of five things, and each one can be checked in an afternoon.",
       ] },
+      { h: "Traffic or conversion? Check three numbers first", p: [
+        "Before chasing any of the causes below, find out where the leak is. Look at three numbers for the last month: visitors to the site (from Google Analytics or your site builder's stats), enquiries (calls, form submissions, messages and bookings), and new customers who came from those enquiries.",
+        "If visitors are low, the problem is being found, not the site itself, and the fix starts with [local SEO](/services/local-seo-ai-visibility). If visitors are healthy but enquiries are close to zero, the site is losing people, and causes 1 to 4 below are where to look. If enquiries arrive but few become customers, the leak is after contact, which is cause 5.",
+        "There is no universal good ratio between these numbers, because it depends on your trade and your prices. What matters is which number is out of line with the other two.",
+      ] },
       { h: "Cause 1: the site is slow on a phone", p: [
         "Most local searches happen on a phone, often with one hand and little patience. If the page takes seconds to appear, the visitor goes back to the results and calls the next business on the list.",
         "How to diagnose it: open your site on your own phone using mobile data, not office wifi. Then run it through Google's free PageSpeed Insights and look at the mobile score. If it feels slow to you, it feels slow to every customer.",
+      ] },
+      { h: "How fast is fast enough?", p: [
+        "Google publishes three Core Web Vitals thresholds for a good experience, measured on real visits: Largest Contentful Paint (how long the main content takes to appear) of 2.5 seconds or less, Interaction to Next Paint (how quickly the page responds to a tap) of 200 milliseconds or less, and Cumulative Layout Shift (how much the page jumps while it loads) of 0.1 or less. A page passes when at least 75% of visits meet each one.",
+        "PageSpeed Insights shows all three for your site, mobile first. If any of them is outside its threshold, speed is the cause to fix before the others.",
       ] },
       { h: "Cause 2: there is no clear call to action", p: [
         "A visitor who has to hunt for the phone number or the booking button usually does not hunt for long. Every page should make one next step obvious: call, book or request a quote.",
