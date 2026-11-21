@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Frame, Reveal, BookCall, Ghost, WorkRows, ExecSummary, wrap, h2, eyebrow, ring } from "./Landing";
 import { CtaBand, h1 } from "./Work";
 import { studies } from "@/lib/work";
-import { topics, topicHref, type Topic } from "@/lib/pages";
+import { topics, topicHref, inGroup, guidesHub, type Topic } from "@/lib/pages";
 import { CTA } from "@/lib/content";
 
 const label = "font-display text-xl font-medium tracking-[-0.02em] text-ink-soft";
@@ -40,6 +40,35 @@ export function FaqList({ faqs }: { faqs: readonly { q: string; a: string }[] })
         </li>
       ))}
     </ul>
+  );
+}
+
+/** /guides hub: every guide, with its one-line description. Same list style as "What goes wrong". */
+export function GuidesIndex() {
+  return (
+    <Frame>
+      <section className="pb-24 pt-36 md:pb-32 md:pt-44">
+        <div className={wrap}>
+          <Reveal>
+            <h1 className={`${h1} max-w-[18ch]`}>{guidesHub.h1}</h1>
+            <p className="mt-7 max-w-[56ch] text-pretty text-[17px] leading-[1.6] text-ink-soft md:text-lg">{guidesHub.sub}</p>
+          </Reveal>
+          <ul className="mt-16 divide-y divide-line border-y border-line md:mt-20">
+            {inGroup("guides").map((g, i) => (
+              <li key={g.slug}>
+                <Reveal delay={i * 0.05} className="py-8">
+                  <h2 className="font-display text-xl font-medium tracking-[-0.02em] md:text-2xl">
+                    <Link href={topicHref(g)} className={`rounded hover:text-accent-ink ${ring}`}>{g.title}</Link>
+                  </h2>
+                  <p className="mt-2 max-w-[56ch] text-pretty text-ink-soft">{g.description}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <CtaBand />
+    </Frame>
   );
 }
 

@@ -17,6 +17,7 @@ export function GET() {
   const urls = [
     page("", 1, [], lastmod.home),
     ...topics.map((t) => page(topicHref(t), 0.9, [], t.updated)),
+    page("/guides", 0.8, [], topics.filter((t) => t.group === "guides").map((t) => t.updated ?? lastmod.site).sort().reverse()[0]),
     page("/work", 0.8),
     // Image entries for our own screenshots only: remote stock covers aren't ours to index.
     ...studies.map((s) => page(`/work/${s.slug}`, 0.6, [s.img, ...(s.shots ?? []).map((x) => x.src)].filter((src) => src.startsWith("/")))),
