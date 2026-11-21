@@ -3,6 +3,8 @@ import { Frame, Reveal, BookCall, Arrow, Check, wrap, eyebrow, ring } from "./La
 import { h1 } from "./Work";
 import { SITE, contact } from "@/lib/content";
 
+declare global { interface Window { gtag?: (...args: unknown[]) => void } }
+
 const field = `mt-2 w-full rounded-2xl bg-surface px-4 py-3 text-[16px] ring-1 ring-line-strong placeholder:text-muted ${ring}`;
 
 // ponytail: no backend. The form opens WhatsApp with the message pre-filled, so the lead arrives on the owner's phone.
@@ -16,6 +18,8 @@ function send(e: React.FormEvent<HTMLFormElement>) {
     `Biggest problem: ${f.get("problem")}`,
     f.get("details") && `Details: ${f.get("details")}`,
   ].filter(Boolean).join("\n");
+  // Analytics: event name only, never form values (no PII). onSubmit only runs once the form validates.
+  window.gtag?.("event", "contact_form_whatsapp_send", { send_to: SITE.ga4 });
   window.open(`${SITE.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
 }
 

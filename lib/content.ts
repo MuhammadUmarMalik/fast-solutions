@@ -14,6 +14,7 @@ export const SITE = {
   country: "PK",
   github: "https://github.com/MuhammadUmarMalik",
   gtm: "GTM-WPZFBLSC",
+  ga4: "G-WR2P2V6Z85", // same property GTM loads; used directly for events GTM has no trigger for
   email: "support@softexsolutions.tech",
 };
 
