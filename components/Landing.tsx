@@ -219,7 +219,7 @@ function HeroMockup() {
               </ul>
             </div>
             <div className="relative aspect-[4/4.4] overflow-hidden rounded-[1.6cqw] bg-putty">
-              <Image src={m.image} alt="" fill priority sizes="(min-width: 1240px) 560px, 46vw" className="object-cover" />
+              <Image src={m.image} alt={m.imageAlt} fill priority sizes="(min-width: 1240px) 560px, 46vw" className="object-cover" />
             </div>
           </div>
         </div>
@@ -243,7 +243,7 @@ function HeroMockup() {
             <span className="flex flex-col gap-[1.4cqw]"><span className="h-[0.8cqw] w-[6cqw] rounded-full bg-ink" /><span className="h-[0.8cqw] w-[6cqw] rounded-full bg-ink" /></span>
           </div>
           <div className="relative mx-[5cqw] aspect-[4/3] overflow-hidden rounded-[5cqw] bg-putty">
-            <Image src={m.image} alt="" fill sizes="260px" className="object-cover" />
+            <Image src={m.image} alt={m.imageAlt} fill sizes="260px" className="object-cover" />
           </div>
           <div className="px-[7cqw] pt-[6cqw]">
             <p className="font-display text-[9.5cqw] font-semibold leading-[1.02] tracking-[-0.03em]">{m.h}</p>

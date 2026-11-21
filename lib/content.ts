@@ -61,6 +61,7 @@ export const hero = {
     p: "Same-week appointments, clear prices and text reminders, so a visit is never missed.",
     facts: ["Open Saturdays", "New patients welcome", "Free parking"],
     image: U("photo-1629909613654-28e377c37b09"),
+    imageAlt: "Dental care photo on the sample Maple & Main clinic website",
     toast: { t: "New booking", d: "Tue 10:30, check-up. Confirmation sent." },
   },
 };
