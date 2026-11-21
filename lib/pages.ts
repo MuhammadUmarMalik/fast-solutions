@@ -339,6 +339,61 @@ export const topics: Topic[] = [
     ],
     studies: ["bathroom-remodeling-landing-page"],
   },
+  {
+    group: "guides",
+    slug: "slow-website-costing-customers",
+    name: "Your slow website is costing you customers",
+    title: "Your Slow Website Is Costing You Customers",
+    description: "Is your slow website costing you customers? Test your speed, read the numbers, and fix the biggest cause first — no rebuild needed.",
+    eyebrow: "Guide",
+    h1: "Your slow website is costing you customers.",
+    sub: "How to test your speed in ten minutes, read the numbers, and fix the biggest cause first.",
+    answer: "A website is slow when it misses Google's Core Web Vitals thresholds: the main content should appear within 2.5 seconds, the page should respond to a tap within 200 milliseconds, and the layout should barely move while it loads. Test it with Google's free PageSpeed Insights on mobile first. The usual causes are oversized images, too many scripts, a heavy theme or page builder, and slow hosting, and fixing the biggest one first rarely needs a rebuild.",
+    published: "2026-11-21",
+    updated: "2026-11-21",
+    body: [
+      { h: "What \"slow\" actually means", p: [
+        "Slow is not a feeling, it is a measurement. Google publishes three Core Web Vitals and the thresholds for a good experience on real visits. Largest Contentful Paint, how long the main content takes to appear, should be 2.5 seconds or less. Interaction to Next Paint, how quickly the page responds when someone taps a button, should be 200 milliseconds or less. Cumulative Layout Shift, how much the page jumps around while it loads, should be 0.1 or less. A page passes when at least 75% of visits meet each threshold.",
+        "These numbers matter because your customers are mostly on phones, often on mobile data. A site that feels fine on the office computer can be the slow one on the list when someone searches for your service from their driveway.",
+      ] },
+      { h: "Test it in ten minutes", p: [
+        "Open Google's free PageSpeed Insights, paste your home page address and run the test. Look at the mobile tab first, because that is the one your customers live on. If Google has enough real-visit data for your site, the top of the report shows the three Core Web Vitals with a pass or fail. Below that is a lab test with a performance score and a list of opportunities.",
+        "Run the test on your two or three most important pages too, not only the home page: the page for your main service and your contact or booking page. Then open the site on your own phone over mobile data and count how long it takes before you could tap the call button. Write the numbers down so you can compare after each fix.",
+      ] },
+      { h: "The four usual causes", p: [
+        "Images. This is the most common one. Photos uploaded straight from a camera or phone can be many times bigger than the screen needs. PageSpeed flags them as images to resize, compress or serve in a modern format such as WebP.",
+        "Scripts. Every chat widget, tracking tag, booking embed, slider and pop-up adds code the phone has to download and run before the page responds. Sites collect them over the years and nobody removes the old ones. PageSpeed lists them as unused or render-blocking JavaScript.",
+        "A heavy theme or page builder. Multipurpose themes and drag-and-drop builders load the code for every feature they offer, even the ones your page never uses. The result is a lot of code for a simple page.",
+        "Hosting. Cheap shared hosting can take a long time just to start sending the page. In PageSpeed this shows up as a slow server response time. No amount of image work fixes a server that is slow to answer.",
+      ] },
+      { h: "Fix them in this order", p: [
+        "Start with images, because the fix is usually quick and the gain is often the largest. Resize each image to the size it is actually shown at, compress it, convert it to WebP and lazy-load anything below the first screen.",
+        "Then remove scripts you no longer use and delay the ones you keep, such as chat widgets, so they load after the main content. Next, check whether the theme or builder is the bottleneck: if a simple page is still heavy after the first two fixes, that is the likely cause. Hosting comes last, because it is the easiest to blame and only worth changing once the page itself is lean.",
+        "A full rebuild is the answer only when the theme or builder is the problem and cannot be trimmed. Sites built in Next.js avoid most of these causes by design, with pre-rendered pages and optimised images, which is how we build [web design and development](/services/web-design-development) projects.",
+      ] },
+      { h: "A 90-minute tune-up plan", p: [
+        "First 15 minutes: run PageSpeed Insights on mobile for your three most important pages and note the Core Web Vitals and the top opportunities for each.",
+        "Next 30 minutes: fix the images on those pages. Resize, compress and convert the biggest ones first, starting with the image at the top of the home page, which is usually what Largest Contentful Paint measures.",
+        "Next 30 minutes: list every plug-in, widget and tracking tag on the site. Remove what nobody uses and set the rest to load after the page.",
+        "Last 15 minutes: run the same tests again and compare. If the numbers barely moved, the theme, the builder or the hosting is the bottleneck, and that is when it is worth getting a second opinion.",
+      ] },
+      { h: "What a fast site looks like in practice", p: [
+        "A landing page we built for a US bathroom remodeler uses Next.js with lazy-loaded sections and scores 90+ on PageSpeed. Speed was one part of the job, alongside clear calls to action and trust close to the form, and the page brings in 20+ leads and enquiries a month. Read the full [bathroom remodeler case study](/work/bathroom-remodeling-landing-page).",
+        "Speed also feeds search: fast pages and good Core Web Vitals are part of the foundation in [local SEO and AI visibility](/services/local-seo-ai-visibility), alongside structure and structured data.",
+      ] },
+      { h: "Where to start", p: [
+        "Run the ten-minute test today and write down the numbers. If you would like a second pair of eyes on them, send us your site through the [free website review](/contact). We reply on WhatsApp with what we would fix first. It is free, with no obligation and no call needed.",
+      ] },
+    ],
+    problems: [],
+    build: [],
+    faqs: [
+      { q: "How fast should a website load?", a: "Google's published Core Web Vitals thresholds are a Largest Contentful Paint of 2.5 seconds or less, an Interaction to Next Paint of 200 milliseconds or less and a Cumulative Layout Shift of 0.1 or less, for at least 75% of visits." },
+      { q: "How do I test my website speed?", a: "Run your page through Google's free PageSpeed Insights and read the mobile results first. It shows the Core Web Vitals from real visits when Google has enough data, plus a lab test with a list of what to fix." },
+      { q: "Do I need a new website to make it faster?", a: "Usually not. Oversized images and unused scripts are the most common causes and can be fixed on the existing site. A rebuild makes sense only when the theme or page builder itself is the bottleneck." },
+    ],
+    studies: ["bathroom-remodeling-landing-page"],
+  },
 ];
 
 // /guides hub copy.
