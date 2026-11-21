@@ -48,6 +48,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${SITE.gtm}');`}
         </Script>
+        {/* GA4 via gtag.js for code-fired events (the GTM container can't be edited). Page views stay with GTM: send_page_view false avoids double counting. */}
+        <Script id="ga4-loader" strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`} />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || []; window.gtag = window.gtag || function(){dataLayer.push(arguments);}; gtag('js', new Date()); gtag('config', '${SITE.ga4}', { send_page_view: false });`}
+        </Script>
         {children}
       </body>
     </html>
